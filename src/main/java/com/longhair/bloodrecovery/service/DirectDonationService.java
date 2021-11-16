@@ -167,6 +167,7 @@ public class DirectDonationService {
         Optional<DirectDonation> item = directDonationRepository.findById(id);
         List<Long> idList = new ArrayList<>();
         if(item.isPresent()){
+            changeComplete(item.get());
             item.get().getApplicants().forEach(e -> idList.add(e.getId()));
             applicantRepository.deleteAllById(idList);
         }
