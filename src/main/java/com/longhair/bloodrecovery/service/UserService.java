@@ -8,17 +8,23 @@ import com.longhair.bloodrecovery.dto.UserInfoDto;
 import com.longhair.bloodrecovery.dto.UserPutDto;
 import com.longhair.bloodrecovery.repository.PointRepository;
 import com.longhair.bloodrecovery.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
+import java.util.*;
 
+@Slf4j
 @Service
 public class UserService {
+    private final static int basePoint = 300;
+    private final static int bronzeTier = 1000;
+    private final static int angleTier = 2000;
+    private final static int godTier = 3000;
+
     @Autowired
     UserRepository userRepository;
 
@@ -41,7 +47,7 @@ public class UserService {
         user.setPoint(0);
         user.setLevel(1);
         userRepository.save(user);
-        registerPoint(user.getUserId(), 300);
+        registerPoint(user.getUserId(), basePoint);
         return user;
     }
 
@@ -59,7 +65,9 @@ public class UserService {
         if(user == null){
             return false;
         }
-        else return user.getPassword().equals(password);
+        String result = Cypto.decrypt(user.getPassword(), "longhair");
+
+        return result.equals(Cypto.decrypt(password, "longhair"));
     }
 
     @Transactional
@@ -70,9 +78,13 @@ public class UserService {
     @Transactional
     public String searchId(String name, String personalNumber){
         String result = "";
-        User item = userRepository.findUserByNameAndPersonalNumber(name, personalNumber);
-        if(item != null){
-            result = item.getUserId();
+        List<User> items = userRepository.findUsersByName(name);
+        String result1 = Cypto.decrypt(personalNumber, "longhair");
+        for(User e : items){
+            String result2 = Cypto.decrypt(e.getPersonalNumber(), "longhair");
+            if(result1.equals(result2)){
+                result = e.getUserId();
+            }
         }
         return result;
     }
@@ -144,13 +156,13 @@ public class UserService {
 
     private int updateLevel(int point){
         int result;
-        if(point < 1000){
+        if(point < bronzeTier){
             result = 1;
         }
-        else if(point < 2000){
+        else if(point < angleTier){
             result = 2;
         }
-        else if(point < 3000){
+        else if(point < godTier){
             result = 3;
         }
         else{
