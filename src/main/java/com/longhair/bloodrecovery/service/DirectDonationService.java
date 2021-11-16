@@ -40,7 +40,7 @@ public class DirectDonationService {
         Optional<Applicant> flag = applicantRepository.findApplicantByApplicantIdentifyAndApplyStatus(applicant.getApplicantIdentify(), false);
         if(item.isPresent() && flag.isEmpty()) {
             LocalDateTime date = LocalDateTime.now();
-            if(item.get().getPeriodTo().isAfter(date)) {
+            if(item.get().getPeriodTo().isBefore(date)) {
                 Map map = getUserInfo(applicant.getApplicantIdentify());
                 applicant.setApplicantNickname(map.get("nickname").toString());
                 applicant.setDirectDonation(item.get());
