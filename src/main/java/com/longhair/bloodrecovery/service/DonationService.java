@@ -54,7 +54,7 @@ public class DonationService {
         Map<String, Object> pointMap = new HashMap<>();
         pointMap.put("userId", donation.getUserId());
         pointMap.put("plusPoint", 50); //헌혈증 기부로 50포인트 추가
-        pointMap.put("breakdown", "헌혈증기부로 50포인트 추가");
+        pointMap.put("breakdown", "헌혈증 기부");
 
         ResponseEntity<Map> result = rt.exchange(location, HttpMethod.PUT, new HttpEntity<>(pointMap), Map.class);
         if (!Boolean.parseBoolean(result.getBody().get("result").toString())){

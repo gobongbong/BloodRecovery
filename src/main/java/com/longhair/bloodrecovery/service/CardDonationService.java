@@ -90,7 +90,7 @@ public class CardDonationService {
         pointMap.put("plusPoint", (cardRequest.getDonationCount()) * 50);
         //((요청한 헌혈증 개수 - 기부 받은 헌혈증 개수) * 50 )만큼 포인트 돌려받기
         pointMap.put("minusPoint", cardRequest.getRequestCount() * 50); //요청 수 마다 50포인트 차감
-        pointMap.put("breakdown", "헌혈증기부" + cardRequest.getRequestCount() + "개의 포인트 차감");
+        pointMap.put("breakdown", "헌혈증 기부 요청");
 
         ResponseEntity<Map> result = rt.exchange(location, HttpMethod.PUT, new HttpEntity<>(pointMap), Map.class);
         if (!Boolean.parseBoolean(result.getBody().get("result").toString())){
@@ -126,7 +126,7 @@ public class CardDonationService {
         pointMap.put("userId", cardRequest.getUserId());
         pointMap.put("plusPoint", (cardRequest.getRequestCount() - cardRequest.getDonationCount()) * 50);
         //((요청한 헌혈증 개수 - 기부 받은 헌혈증 개수) * 50 )만큼 포인트 돌려받기
-        pointMap.put("breakdown", "포인트 캐쉬백");
+        pointMap.put("breakdown", "요청 중단 및 삭제로 인한 포인트 캐시백");
 
         ResponseEntity<Map> result = rt.exchange(location, HttpMethod.PUT, new HttpEntity<>(pointMap), Map.class);
 
@@ -154,7 +154,7 @@ public class CardDonationService {
                 pointMap.put("userId", cardRequest.getUserId());
                 pointMap.put("plusPoint", (cardRequest.getRequestCount() - cardRequest.getDonationCount()) * 50);
                 //((요청한 헌혈증 개수 - 기부 받은 헌혈증 개수) * 50 )만큼 포인트 돌려받기
-                pointMap.put("breakdown", "포인트 캐쉬백");
+                pointMap.put("breakdown", "요청 중단 및 삭제로 인한 포인트 캐시백");
 
                 ResponseEntity<Map> result = rt.exchange(location, HttpMethod.PUT, new HttpEntity<>(pointMap), Map.class);
             }
