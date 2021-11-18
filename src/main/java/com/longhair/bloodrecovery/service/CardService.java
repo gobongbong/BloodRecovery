@@ -44,6 +44,10 @@ public class CardService {
 
     //헌혈증추가
     public Card save(Card card, String id){
+        Card card1 = cardRepository.findCardByCode(card.getCode());
+        if(card1 == null){
+            return card1;
+        }
         card.setUserid(id);
         return cardRepository.save(card);
     }
