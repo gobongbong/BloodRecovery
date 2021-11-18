@@ -102,7 +102,7 @@ public class CardService {
         //BIMS 인증
         boolean result = false;
         Card card1 = cardRepository.findCardByCode(cardApplyDto.getCode());
-        if(card1 != null){
+        if(card1 == null){
             result = true;
         }
         //RestTemplate rt = new RestTemplate();
