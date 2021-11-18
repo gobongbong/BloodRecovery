@@ -11,6 +11,7 @@ import Directed_card from "./Directed_card"
 import Board_card from "./Board_card";
 import POCKETICON from "../../Img/pocket.png";
 import DIRECTED from "../../Img/DirectedIMG/blood-donation.png"
+import GOBACKBTN from "../../Img/DirectedIMG/arrow.png";
 const Mypage_myboard = (props) => {
 
   const [getData, setGetdata] = useState([]);
@@ -49,7 +50,9 @@ const Mypage_myboard = (props) => {
       <div className="Mypage-myboard-nav-container">
         <div className="Mypage-myboard-nav-class">
           <Menu_left_nav name={"마이페이지"} imgname={POCKETICON}></Menu_left_nav>
+         
         </div>
+        <img src={GOBACKBTN} className="Mypage-myboard-goback" onClick={()=>props.addPage("마이페이지")}></img>
       </div>
       <div className="Mypage-myboard-all-container">
         <div className="Mypage-myboard-board-container">

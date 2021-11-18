@@ -113,10 +113,10 @@ const Board_inquire = (id) => {
     setModalIsOpen(false);
   };
   const beDonation = () => {
-    setModalIsOpen(true);
     if (sessionStorage.getItem("userId") == null) {
       alert("로그인 후 기부가 가능합니다!");
     } else {
+      setModalIsOpen(true);
       // id.getValue();
     }
   };

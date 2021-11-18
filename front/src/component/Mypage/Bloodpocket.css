@@ -3,12 +3,11 @@
   width: 970px;
   height: 734px;
   margin: auto;
-  background-color: #349fdd;
+
 }
 .Bloodpocket-main-nav-container {
   float: left;
   width: 100%;
-background-color: rgb(183, 220, 20);
   border-bottom: solid 4px #fb4d4e;
 }
 
@@ -18,12 +17,12 @@ background-color: rgb(183, 220, 20);
   width: 40px;
   height: 40px;
   float: left;
-  background-color: rgb(255, 6, 27);
+ 
 }
 .Bloodpocket-nav-goback {
   width: 3%;
   height: 100%;
-  background-color: coral;
+ 
   float: right;
 }
 .Bloodpocket-main-nav-container{
@@ -38,25 +37,24 @@ margin-left: 3%;
 margin-top: 1%;
 width: 89%;
 float: left;
-background-color: aqua;
+
 }
 .Bloodpocket-main-context-container{
 width: 90%;
 height: 85%;
 margin: auto;
 padding-top: 10%;
-background-color: rgb(255, 127, 212);
+
 
 }
 .Bloodpocket-main-context-card-container{
   width: 100%;
   height: 90%;
-  background-color: chartreuse;
+
 }
 .Bloodpocket-main-context-card-register{
   width: 32%;
   height: 30%;
-  background-color: #fb4d4e;
   padding-top: 2%;
   margin-left: 0.8%;
   float: left;
@@ -65,7 +63,7 @@ background-color: rgb(255, 127, 212);
   width: 90%;
   margin: auto;
   height: 90%;
-  background-color: rgb(240, 255, 241);
+  background-color: rgb(216, 218, 216);
   border-radius: 10px;
   border: 4px dotted black;
 }
@@ -96,7 +94,6 @@ background-color: rgb(255, 127, 212);
 .Bloodpocket-main-input{
 
   
-  background-color: #fb4d4e;
 
 
 

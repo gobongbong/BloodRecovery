@@ -4,7 +4,7 @@
   height: 734px;
   margin: auto;
   /* 
-    background-color: aqua; */
+  background-color: aqua; */
 }
 .Board-rewrite-nav-container {
   float: left;
@@ -53,12 +53,13 @@
 .Board-rewrite-card-class {
   width: 100%;
   float: left;
-  height: auto;
+  height: 45%;
+  padding: auto;
   /* background-color: darkgoldenrod; */
   border: 2px solid #c2c2c29d;
   border-radius: 50px 50px 50px 50px;
 }
-.Board-rewrite-card-totaled {
+.Dircected-rewrite-card-total {
   margin: auto;
   width: 90%;
 }
@@ -71,6 +72,7 @@
 .Board-rewrite-card-title-class {
   float: left;
   margin-top: 3%;
+  margin-left: 3%;
   width: 65%;
   /* background-color: aqua; */
   font-size: 16px;
@@ -110,81 +112,12 @@
 }
 
 .Board-rewrite-card-context-input {
-  width: 100%;
+  width: 95%;
   height: 170px;
+  margin-left: 2%;
   border: 1px solid rgba(0, 0, 0, 0.247);
   /* background-color: #fb4d4e; */
 }
-/*//////////////////////////////////////////*/
-  /* .react-datepicker__navigation{
-background-color: aqua;
-
-  }
-.react-datepicker__navigation--next{
-
-background-color: #e6c4c4;
-width: 60px;
-border-radius: 10px 10px 10px 10px;
-font-size: 10px;
-margin-left: 25px;
-border: 2px solid#fb4d4e;
-}
-
-.react-datepicker__navigation--previous{
-
-    background-color:#e6c4c4;;
-    width: 60px;
-    border-radius: 10px 10px 10px 10px;
-    font-size: 10px;
-    margin-left: 30px;
-    border: 2px solid#fb4d4e;
-}
- .react-datepicker__month-container{
-    width: 200px;
-    height: 190px;
-    background-color: #e0c3c3;
-    border-radius: 15px 15px 15px 15px;
-    
- }
- .react-datepicker__month{
-     width: 90%;
-     margin: auto;
-     height: 100%;
-
- }
- .react-datepicker__day-names{
-     background-color: rgb(57, 100, 100);
-     width: 100%;
-     display: flex;
-     text-align: center;
- }
- .react-datepicker__day-name{
-     background-color: antiquewhite;
-     width: 100%;
- }
- .react-datepicker__week{
-
-    background-color: aliceblue;
-    width: 100%;
-    display: flex;
-    
- }
-
- 
-.react-datepicker__header {
-    width: 90%;
-    margin: auto;
-}
- div[class^="react-datepicker__day react-datepicker__day--"]{
-     background-color: rgb(236, 191, 214);
-     width: 100%;
-     text-align: center;
- }*/
-/* .react-datepicker__input-container{
-    float: left;
-    background-color: #0026ff;
-   width: 100%;
-} */
 
 input[type="text"] {
   width: 100%;
@@ -211,13 +144,10 @@ input[type="text"] {
   float: left;
   margin-left: 3%;
 }
-/* .react-datepicker__current-month{
 
-    text-align: center;
-
-} */
 .Board-rewrite-footer-upload-container {
   width: 100%;
+  padding-left: 3%;
 
   /* background-color: #fb4d4e; */
 }
@@ -240,7 +170,7 @@ input[type="text"] {
 
 .Board-rewrite-status-container {
   width: 100%;
-  background-color: aqua;
+
   height: 10%;
   margin-bottom: 3%;
 }

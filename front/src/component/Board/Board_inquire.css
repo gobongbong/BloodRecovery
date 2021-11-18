@@ -141,7 +141,7 @@
 .Board-inquire-card-writername-class {
   margin-top: 5%;
   float: left;
-  background-color: blue;
+  /* background-color: blue; */
   width: 70%;
 }
 .Board-inquire-card-footer-class {
@@ -153,7 +153,7 @@
   height: 70%;
   width: 10%;
   border-radius: 8px 8px 8px 8px;
-  /* background-color: #fed4d4; */
+  background-color: #fed4d4;
 }
 .Board-inquire-footer-container {
   width: 100%;

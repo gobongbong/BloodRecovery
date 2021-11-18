@@ -91,51 +91,51 @@ function Change_info(props, getData) {
 
   // function () {
   return (
-    <div className="Mypage-main-container-class">
-      <div className="Mypage-main-class">
-        <div className="Mypage-main-Header-container-class">
-          {/* {console.log(props.index)} */}
+    <div className="Change-main-container-class">
+      <div className="Change-main-class">
+        <div className="Change-info-nav-container">
           <Menu_left_nav
             name={"나의정보수정"}
             imgname={BLOODICON}
-            // imgname={BLOODGIF}
           ></Menu_left_nav>
         </div>
-        <div className="Mypage-rewrite-nav-goback">
+        <div className="Change-info-goback-bntimg-class">
           <img
-            className="Mypage-rewrite-goback-bntimg-class"
+            className="Change-info-nav-goback"
             onClick={() => props.addPage("마이페이지")}
             src={GOBACKBTN}
           ></img>
         </div>
       </div>
-      <div className="Mypage-main-nav-container"></div>
-      <div className="Mypage-main-profile">
-        <img className="Mypage-main-profileimg" src={user?.profile}></img>
-      </div>
-      <div className="Mypage-profile-footer-upload">
-        <S3Upload getfilename={getfilename} />
-      </div>
-
-      <div className="Mypage-usericon-class">{gradefunction(user?.level)}</div>
-      <div className="Mypage-main-nickname">{user?.nickname}</div>
-      <div className="nickname-change">
-        <div>
-          변경 할 닉네임:
-          <input
-            name="nickname"
-            className="Mypage-rewrite-card-title-class"
-            value={inputs.nickname}
-            onChange={onChange}
-          ></input>
+      <div className="Change-info-profilecontainer">
+        <div className="Change-info-profile">
+          <img className="Mypage-main-profileimg" src={user?.profile}></img>
         </div>
-      </div>
+        <div className="Mypage-profile-footer-upload">
+          <S3Upload getfilename={getfilename} />
+        </div>
 
-      <div className="Mypage-main-nav2"></div>
-      {/* <div className="Mypage-main-username">{user?.name}</div>
+        <div className="Mypage-usericon-class">
+          {gradefunction(user?.level)}
+        </div>
+        <div className="Mypage-main-nickname">{user?.nickname}</div>
+        <div className="nickname-change">
+          <div>
+            변경 할 닉네임:
+            <input
+              name="nickname"
+              className="Mypage-rewrite-card-title-class"
+              value={inputs.nickname}
+              onChange={onChange}
+            ></input>
+          </div>
+        </div>
+
+        <div className="Mypage-main-nav2"></div>
+        {/* <div className="Mypage-main-username">{user?.name}</div>
       <div className="Mypage-main-userid">{user?.userId}</div> */}
-
-      <div className="Mypage-rewrite-footer-container">
+      </div>
+      <div className="Change-info-footer-container">
         <div className="Mypage-rewrite-btn-container">
           <div className="Mypage-rewrite-btn-class" onClick={senddata}>
             <Common_Button_IMG
