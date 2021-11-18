@@ -44,10 +44,6 @@ public class CardService {
 
     //헌혈증추가
     public Card save(Card card, String id){
-        Card card1 = cardRepository.findCardByCode(card.getCode());
-        if(card1 == null){
-            return card1;
-        }
         card.setUserid(id);
         return cardRepository.save(card);
     }
@@ -105,11 +101,14 @@ public class CardService {
         //TODO
         //BIMS 인증
         boolean result = false;
+        Card card1 = cardRepository.findCardByCode(cardApplyDto.getCode());
+        if(card1 != null){
+            result = true;
+        }
         //RestTemplate rt = new RestTemplate();
         //Map item = rt.getForObject(url + cardApplyDto.getUserId(), Map.class);
         //if(item.get("name").equals(cardApplyDto.getName())){
             //BIMS 인증하기
-            result = true;
         //}
         return result;
     }
