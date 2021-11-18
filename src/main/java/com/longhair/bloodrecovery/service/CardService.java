@@ -101,8 +101,9 @@ public class CardService {
         //TODO
         //BIMS 인증
         boolean result = false;
+        String exp = "^[0-9]{2}-[0-9]{2}-[0-9]{6}$";
         Card card1 = cardRepository.findCardByCode(cardApplyDto.getCode());
-        if(card1 == null){
+        if(card1 == null && Pattern.matches(exp, cardApplyDto.getCode())){
             result = true;
         }
         //RestTemplate rt = new RestTemplate();
