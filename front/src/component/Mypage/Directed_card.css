@@ -1,4 +1,4 @@
-.Mypage-card-container {
+.Directed-recard-container {
   width: 87%;
   height: 86%;
   /* background-color: lightpink; */
@@ -10,7 +10,7 @@
   margin-top: 3%;
   cursor: pointer;
 }
-.Mypage-card-nav-container {
+.Directed-card-nav-container {
   margin-top: 2%;
   width: 90%;
   height: 25%;
@@ -19,27 +19,27 @@
   /* background-color: rgba(0, 255, 255, 0.103); */
   float: left;
 }
-.Mypage-card-nav-usericon-class {
+.Directed-card-nav-usericon-class {
   width: 10%;
 
   height: 100%;
   /* background-color: burlywood; */
   float: left;
 }
-.Mypage-card-nav-username-class {
+.Directed-card-nav-username-class {
   float: left;
   /* background-color: cadetblue; */
   height: 100%;
   width: 60%;
   margin-left: 2%;
 }
-.Mypage-card-nav-userstatus-container {
+.Directed-card-nav-userstatus-container {
   float: left;
   width: 27%;
   height: 100%;
   /* background-color: darkgreen; */
 }
-.Mypage-card-nav-userstatus-class {
+.Directed-card-nav-userstatus-class {
   width: 80%;
   height: 80%;
   margin-top: 10%;
@@ -47,13 +47,18 @@
   background-color: #fed4d4;
   border-radius: 8px 8px 8px 8px;
 }
-.Mypage-card-nav-userstatus-icon {
+.Directed-card-nav-userstatus-icon {
   margin-top: 13%;
   width: 40%;
   /* background-color: aqua; */
   float: left;
 }
-.Mypage-card-content-container {
+.Directed-card-nav-userstatus-p-class {
+  float: left;
+  font-size: 11px;
+  /* background-color: bisque; */
+}
+.Directed-card-content-container {
   float: left;
   width: 80%;
   height: 50%;
@@ -61,7 +66,7 @@
   margin-right: 10%;
   /* background-color: darksalmon; */
 }
-.Mypage-card-footer-container {
+.Directed-card-footer-container {
   float: left;
   width: 90%;
   height: 23%;
@@ -69,32 +74,74 @@
   margin-right: 5%;
   /* background-color: rgba(0, 255, 255, 0.418); */
 }
-.Mypage-img-userimg {
+.Directed-img-userimg {
   width: 100%;
   float: left;
   /* background-color: aliceblue; */
 
   margin-top: 50%;
 }
-.Mypage-card-content-class {
+.Directed-card-content-class {
   font-size: 15px;
   text-align: center;
 }
-.Mypage-card-footer-bloodtype-container {
+.Directed-card-footer-locaion-container {
+  width: 7%;
+  height: 100%;
+  /* background-color: brown; */
+  float: left;
+}
+.Directed-card-footer-locationiconimg {
+  margin-top: 60%;
+  width: 100%;
+  height: 50%;
+  /* background-color: antiquewhite; */
+}
+
+.Directed-card-footer-locationname {
+  float: left;
+  width: 25%;
+  height: 70%;
+  margin-bottom: 20%;
+
+
+}
+.Directed-card-footer-locationname-si {
+  float: left;
+  width: 65px;
+  height: 15px;
+  font-size: 2px;
+  position: absolute;
+  text-align: center;
+  
+}
+.Directed-card-footer-locationname-gu {
+  float: left;
+  width: 65px;
+  height: 15px;
+
+  font-size: 6px;
+  position: absolute;
+  margin-top: 20px;
+  text-align: center;
+}
+.Directed-card-footer-bloodtype-container {
   float: left;
   width: 30%;
   height: 100%;
   /* background-color: blueviolet; */
 }
-.Mypage-card-footer-bloodtype-class {
+.Directed-card-footer-bloodtype-class {
   width: 80%;
   height: 80%;
   margin: auto;
   margin-top: 0%;
   border: none;
+
+  background-color: #fed4d4;
   border-radius: 8px 8px 8px 8px;
 }
-.Mypage-card-footer-bloodtype-p-class {
+.Directed-card-footer-bloodtype-p-class {
   font-size: 15px;
   width: 80%;
   height: 95%;
@@ -104,32 +151,21 @@
   color: #ff2d2d;
   /* background-color: aliceblue; */
 }
-.Mypage-card-footer-date-container {
+.Directed-card-footer-date-container {
   float: left;
   width: 38%;
   height: 100%;
   /* background-color: blue; */
 }
-.Mypage-card-footer-date-class {
+.Directed-card-footer-date-class {
   float: left;
   width: 80%;
   height: 100%;
   /* background-color: #fb4d4e; */
   margin-left: 20%;
 }
-.Mypage-card-footer-date-p-class {
-  font-size: 14px;
+.Directed-card-footer-date-p-class {
+  font-size: 12px;
   margin-left: 0%;
   margin-top: 13%;
-}
-.Mypage-card-nav-userstatus-p-class {
-  font-size: 15px;
-  /* background-color: #ff2d2d; */
-  padding-top: 15%;
-}
-.Mypage-card-nav-userstatus-p-class2 {
-  /* background-color: #941515; */
-  /* margin-top: -10%; */
-  padding-top: 11%;
-  font-size: 16px;
 }

@@ -3,13 +3,38 @@
     /* background-color: blue; */
     float: left;
     color: rgb(0, 0, 0);
-    display: flex;
+    width: 505px;
+    height: 46px;
+
+   
 }
 .Menu-left-nav-img-class{
+    float: left;
+    width: 40px;
+ 
 
 }
+/* .te{
+    width: 20%;
+    height: 90%;
+    background-color: blueviolet;
+    margin-bottom: 30px;
+} */
 .Menu-left-nav-h1-class{
+  
+    text-align: left;
+    width: 200px;
+    float: left;
+    height: 40px;
+    margin-left: 10px;
+    font-size: 38px;
+    line-height:1
+   
+}
+.backbtn{
 
-    text-align: right;
-    margin: auto;
+    background-color: aqua;
+   float: right;
+ 
+    height: 100%;
 }

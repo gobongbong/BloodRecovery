@@ -59,9 +59,7 @@ function Mypage_main(props, getData) {
       <div className="Mypage-main-profile">
         <img className="Mypage-main-profileimg" src={user?.profile}></img>
       </div>
-      <div className="Mypage-usericon-class">
-        {gradefunction(getData.getData?.requesterLevel)}
-      </div>
+      <div className="Mypage-usericon-class">{gradefunction(user?.level)}</div>
       <div className="Mypage-main-nickname">{user?.nickname}</div>
       <div className="Mypage-main-nav2"></div>
       <div className="Mypage-main-username">{user?.name}</div>

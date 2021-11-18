@@ -121,7 +121,7 @@ const Directed_inquire = (id) => {
                   
                 </div>
                 <div className="Directed-inquire-nav-goback">
-                    <img className="Directed-inquire-goback-bntimg-class" onClick={() => id.addPage("지정헌혈")} src={GOBACKBTN}></img>
+                    <img className="Directed-inquire-goback-bntimg-class" onClick={() => id.addPage(sessionStorage.getItem("lastbefore"))} src={GOBACKBTN}></img>
                 </div>
             </div>
             <div className="Directed-inquire-content-container">

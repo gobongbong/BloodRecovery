@@ -25,7 +25,7 @@ const Board_inquire = (id) => {
   const [modalIsOpen, setModalIsOpen] = useState();
   //새로고침해도 모달창에서 불러온 컴포넌트가 안꺼지게 하는 함수
   const [modal, setmodal] = useState();
-  const [signal,setsinal]=useState(true);
+  const [signal, setsinal] = useState(true);
   const [getDonation, setGetDonation] = useState([]);
   const modal_style1 = {
     overlay: {
@@ -93,22 +93,6 @@ const Board_inquire = (id) => {
     return <div>{donation.nickname}님이 헌혈증을 기부하셨습니다!</div>;
   };
 
-  // const writeStatue = (status) => {
-  //   if (status === false)
-  //     return {getData.getData?.donationCount}/{getData.getData?.requestCount}
-  //   else return "완료";
-  // };
-
-  // {getData.getData?.completeStatus === false ? (
-  //   <p className="Directed-card-nav-userstatus-p-class">
-  //     {getData.getData?.donationCount}/
-  //     {getData.getData?.requestCount}
-  //   </p>
-  // ) : (
-  //   <p>완료</p>
-  // )}
-  //나는 그 1/3 이런거!
-
   const dividedate = (inputdate) => {
     var redate = "";
     for (var i in inputdate) {
@@ -124,18 +108,15 @@ const Board_inquire = (id) => {
     else if (level === 3) return GOLD;
     else if (level === 4) return VIP;
   };
-///기부하기//////////////////
-  const endsg=()=>{
-
-    setModalIsOpen(false)
-  }
+  ///기부하기//////////////////
+  const endsg = () => {
+    setModalIsOpen(false);
+  };
   const beDonation = () => {
-    setModalIsOpen(true)
+    setModalIsOpen(true);
     if (sessionStorage.getItem("userId") == null) {
       alert("로그인 후 기부가 가능합니다!");
     } else {
-  
-
       // id.getValue();
     }
   };
@@ -146,7 +127,14 @@ const Board_inquire = (id) => {
         style={modal_style1}
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
-      >  <Bloodpocket onbtn={"true"} number={getData?.data.userId} endsg={endsg}></Bloodpocket>  </ReactModal>
+      >
+        {" "}
+        <Bloodpocket
+          onbtn={"true"}
+          number={getData?.data.userId}
+          endsg={endsg}
+        ></Bloodpocket>{" "}
+      </ReactModal>
       <div className="Board-inquire-nav-container">
         <div className="Board-inquire-nav-class">
           <Menu_left_nav
@@ -158,7 +146,7 @@ const Board_inquire = (id) => {
         <div className="Board-inquire-nav-goback">
           <img
             className="Board-inquire-goback-bntimg-class"
-            onClick={() => id.addPage("헌혈증_기부")}
+            onClick={() => id.addPage(sessionStorage.getItem("lastbefore"))}
             src={GOBACKBTN}
           ></img>
         </div>
@@ -243,17 +231,19 @@ const Board_inquire = (id) => {
               </div>
             ) : null}
 
-            <div className="Board-inquire-default-footer-btn-container">
-              <div
-                className="Board-inquire-default-footer-btn-class"
-                onClick={beDonation}
-              >
-                <Common_Button_IMG
-                  name={"기부하기"}
-                  imgname={Board_BUTTON_IMG}
-                ></Common_Button_IMG>
+            {getData?.data.completeStatus === false ? (
+              <div className="Board-inquire-default-footer-btn-container">
+                <div
+                  className="Board-inquire-default-footer-btn-class"
+                  onClick={beDonation}
+                >
+                  <Common_Button_IMG
+                    name={"기부하기"}
+                    imgname={Board_BUTTON_IMG}
+                  ></Common_Button_IMG>
+                </div>
               </div>
-            </div>
+            ) : null}
 
             <div className="Board-inquire-default-footer-container">
               <div className="Board-inquire-default-footer-info1-class">

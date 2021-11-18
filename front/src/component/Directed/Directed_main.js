@@ -129,11 +129,10 @@ const Directed_main = (props) => {
 
   const getValue = (text) => {
     setGetSi(text);
-    console.log("첫번째지역", text);
   };
   const getValue2 = (text) => {
     setGetdo(text);
-    console.log("두번째지역", text);
+
   };
 
   return (

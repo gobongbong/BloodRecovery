@@ -50,7 +50,7 @@ const Notice_inquire = (id) => {
           userId: sessionStorage.getItem("userId"),
           plusPoint: 5,
           minusPoint: 0,
-          breakdown: "프로모션 참여 5포인트 추가",
+          breakdown: "프로모션 참여",
         }
       )
       .then(function (response) {

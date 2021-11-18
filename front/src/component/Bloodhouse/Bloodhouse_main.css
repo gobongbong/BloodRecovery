@@ -1,44 +1,277 @@
-.Bloodhouse_main_container {
+.Bloodhouse-main-container {
+    width: 970px;
+    height: 734px;
+  
+    background-color: aquamarine;
 }
 
-.Bloodhouse_nav_container {
+.Bloodhouse-nav-container {
+    float: left;
+    height: 8%;
+    width: 100%;
+    background-color: aqua;
+    border-bottom: solid 4px #fb4d4e;
 }
 
-.Bloodhouse_nav_class {
+.Bloodhouse-nav-class {
+    margin-left: 3%;
+    margin-top: 1%;
+    width: 45%;
+    float: left;
+    height: 100%;
 }
 
-.Bloodhouse_content_container {
+.Bloodhouse-content-container {
+    width: 100%;
+    height: 82%;
+    background-color: blueviolet;
+    float: left;
 }
 
-.Bloodhouse_content_class {
+.Bloodhouse-content-class {
+    width: 80%;
+    margin-left: 10%;
+    height: 100%;
+    float: left;
+    background-color: aquamarine;
 }
 
-.Bloodhouse_content_where_container {
+.Bloodhouse-content-where-container {
+   
+    width: 100%;
+    float: left;
+    height: 10%;
+    margin-top: 30px;
+    background-color: rgb(148, 88, 16);
+}
+.Bloodhouse-content-selecthouse{
+    background-color: blue;
+    float: left;
+    height: 20px;
+    margin-bottom: 10px;
+    
+}
+.Bloodhouse-content-text {
+    background-color: aqua;
+    width: 100%;
+    height: 29px;
+    float: left;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
-.Bloodhouse_content_text {
+.Bloodhouse-content-when-container {
+    width: 100%;
+    float: left;
+    height: 330px;
+    background-color: yellow;
+    margin-top: 25px;
 }
 
-.Bloodhouse_content_when_container {
+.Bloodhouse-content-calendar-class {
+    
+    width: 98%;
+    float: left;
+    height: 270px;
+    padding-left: 2%;
+
+    background-color: tomato;
+  
+}
+.Bloodhouse-content-when-big{
+    width: 50%;
+    margin-left: 0.5%;
+    background-color: teal;
+    float: left;
+}
+.react-calendar {
+    width: 348px;
+    height: auto;
+    padding: 3%;
+    border-radius: 20px;
+    /* max-width: 100%; */
+    background: white;
+    border: 1px solid #a0a096;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+    box-shadow: 5px 5px 5px 5px gray;
+  }
+  .react-calendar--doubleView {
+    width: 700px;
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+  }
+  .react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+  }
+  .react-calendar,
+  .react-calendar *,
+  .react-calendar *:before,
+  .react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+  }
+  .react-calendar button:enabled:hover {
+    cursor: pointer;
+  }
+  .react-calendar__navigation {
+    height: 10px;
+    margin-bottom: 1em;
+    width: 100%;
+    padding-left: 10%;
+    /* background-color: #76baff; */
+  }
+  .react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+  }
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #e6e6e6;
+  }
+  .react-calendar__navigation button[disabled] {
+    background-color: #f0f0f0;
+  }
+  .react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+  
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+    
+  }
+  .react-calendar__month-view__weekNumbers {
+    font-weight: bold;
+  }
+  .react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
+    
+  }
+  .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+    
+  
+  }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: #757575;
+  }
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+  }
+  .react-calendar__tile {
+    max-width: 100%;
+    text-align: center;
+    padding: 0.75em 0.5em;
+    background: none;
+    /* background-color: #1087ff; */
+    height: 35px;
+  }
+  .react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+  }
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: #e6e6e6;
+  }
+  .react-calendar__tile--now {
+    background: #ffff76;
+  }
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: #ffffa9;
+  }
+  .react-calendar__tile--hasActive {
+    background: #76baff;
+  }
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: #a9d4ff;
+  }
+  .react-calendar__tile--active {
+    background: #e9c3e1;
+    color: white;
+  }
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: #ffe8fa;
+    border-radius: 50%;
+  }
+  .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+  }
+/* 
+.react-calendar__navigation{
+    width: 100%;
+    background-color: aqua;
+   
+} */
+/* .react-calendar__month-view__days{
+    background-color: aliceblue;
+    height: 50px;
+}
+.react-calendar__month-view__weekdays{
+    text-align: center;
+}
+.react-calendar__navigation__label{
+    width: 40%;
+}
+.react-calendar__navigation__arrow {
+    background-color: rgb(255, 255, 255);
+    width: 15%;
+    
+}
+.react-calendar__navigation__arrow {
+    border-radius: 20%;
+    border: 2px solid white;
 }
 
-.Bloodhouse_content_calendar_class {
+.react-calendar__month-view__days__day--weekend{
+  
+    height: 30px;
 }
 
-.Bloodhouse_content_time_class {
+.react-calendar__month-view__days__day{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid white;
+} */
+
+
+.Bloodhouse-content-time-class {
+    width: 30%;
+    float: left;
+    margin-left: 10%;
+    background-color: violet;
 }
 
-.Bloodhouse_content_bloodtype_container {
+.Bloodhouse-content-bloodtype-container {
 }
 
-.Bloodhouse_content_bloodtype_button_class {
+.Bloodhouse-content-bloodtype-button-class {
 }
 
-.Bloodhouse_footer_container {
+.Bloodhouse-footer-container {
 }
 
-.Bloodhouse_footer_class {
+.Bloodhouse-footer-class {
 }
 
-.Bloodhouse_footer_button_class {
+.Bloodhouse-footer-button-class {
 }

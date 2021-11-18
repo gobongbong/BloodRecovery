@@ -7,8 +7,13 @@ const initialState={
 
 function memory(key,data){
    // JSON.parse(window.localStorage.getItem(key)) 
-    window.sessionStorage.setItem("last", JSON.stringify(data))
-    console.log( "indata",JSON.parse(window.sessionStorage.getItem("last")))
+   sessionStorage.setItem("lastbefore",sessionStorage.getItem("last"))
+   if(data.indexOf('\"')===-1)//오류가 나지않으면
+    sessionStorage.setItem("last", JSON.stringify(data))
+  else
+  sessionStorage.setItem("last", data)
+    {console.log("이떄의 last값",sessionStorage.getItem("last"))}
+    {console.log("아오lastbefore",sessionStorage.getItem("lastbefore"))}  {console.log("아오last",sessionStorage.getItem("last"))}
 }
 const subcribersReducer =(state=initialState, action)=>{
 
@@ -18,7 +23,7 @@ const subcribersReducer =(state=initialState, action)=>{
             return {
             ...state,
             index:state.index+1,
-            page: (window.sessionStorage.getItem("last"))
+            page: (sessionStorage.getItem("last"))
             
             
             

@@ -1,4 +1,4 @@
-.Mypage-card-container {
+.Board-recard-container {
   width: 87%;
   height: 86%;
   /* background-color: lightpink; */
@@ -10,7 +10,7 @@
   margin-top: 3%;
   cursor: pointer;
 }
-.Mypage-card-nav-container {
+.Board-card-nav-container {
   margin-top: 2%;
   width: 90%;
   height: 25%;
@@ -19,27 +19,27 @@
   /* background-color: rgba(0, 255, 255, 0.103); */
   float: left;
 }
-.Mypage-card-nav-usericon-class {
+.Board-card-nav-usericon-class {
   width: 10%;
 
   height: 100%;
   /* background-color: burlywood; */
   float: left;
 }
-.Mypage-card-nav-username-class {
+.Board-card-nav-username-class {
   float: left;
   /* background-color: cadetblue; */
   height: 100%;
   width: 60%;
   margin-left: 2%;
 }
-.Mypage-card-nav-userstatus-container {
+.Board-card-nav-userstatus-container {
   float: left;
   width: 27%;
   height: 100%;
   /* background-color: darkgreen; */
 }
-.Mypage-card-nav-userstatus-class {
+.Board-card-nav-userstatus-class {
   width: 80%;
   height: 80%;
   margin-top: 10%;
@@ -47,13 +47,13 @@
   background-color: #fed4d4;
   border-radius: 8px 8px 8px 8px;
 }
-.Mypage-card-nav-userstatus-icon {
+.Board-card-nav-userstatus-icon {
   margin-top: 13%;
   width: 40%;
   /* background-color: aqua; */
   float: left;
 }
-.Mypage-card-content-container {
+.Board-card-content-container {
   float: left;
   width: 80%;
   height: 50%;
@@ -61,7 +61,7 @@
   margin-right: 10%;
   /* background-color: darksalmon; */
 }
-.Mypage-card-footer-container {
+.Board-card-footer-container {
   float: left;
   width: 90%;
   height: 23%;
@@ -69,24 +69,24 @@
   margin-right: 5%;
   /* background-color: rgba(0, 255, 255, 0.418); */
 }
-.Mypage-img-userimg {
+.Board-img-userimg {
   width: 100%;
   float: left;
   /* background-color: aliceblue; */
 
   margin-top: 50%;
 }
-.Mypage-card-content-class {
+.Board-card-content-class {
   font-size: 15px;
   text-align: center;
 }
-.Mypage-card-footer-bloodtype-container {
+.Board-card-footer-bloodtype-container {
   float: left;
   width: 30%;
   height: 100%;
   /* background-color: blueviolet; */
 }
-.Mypage-card-footer-bloodtype-class {
+.Board-card-footer-bloodtype-class {
   width: 80%;
   height: 80%;
   margin: auto;
@@ -94,7 +94,7 @@
   border: none;
   border-radius: 8px 8px 8px 8px;
 }
-.Mypage-card-footer-bloodtype-p-class {
+.Board-card-footer-bloodtype-p-class {
   font-size: 15px;
   width: 80%;
   height: 95%;
@@ -104,30 +104,30 @@
   color: #ff2d2d;
   /* background-color: aliceblue; */
 }
-.Mypage-card-footer-date-container {
+.Board-card-footer-date-container {
   float: left;
   width: 38%;
   height: 100%;
   /* background-color: blue; */
 }
-.Mypage-card-footer-date-class {
+.Board-card-footer-date-class {
   float: left;
   width: 80%;
   height: 100%;
   /* background-color: #fb4d4e; */
   margin-left: 20%;
 }
-.Mypage-card-footer-date-p-class {
+.Board-card-footer-date-p-class {
   font-size: 14px;
   margin-left: 0%;
   margin-top: 13%;
 }
-.Mypage-card-nav-userstatus-p-class {
+.Board-card-nav-userstatus-p-class {
   font-size: 15px;
   /* background-color: #ff2d2d; */
   padding-top: 15%;
 }
-.Mypage-card-nav-userstatus-p-class2 {
+.Board-card-nav-userstatus-p-class2 {
   /* background-color: #941515; */
   /* margin-top: -10%; */
   padding-top: 11%;
