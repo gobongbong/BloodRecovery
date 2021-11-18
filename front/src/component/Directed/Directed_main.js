@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Menu_left_nav from "../Common/Header/Menu_left_nav";
 import "./Directed_main.css";
 import DIRECTEDIMG from "../../Img/DIRECTEDIMG.png";
-import SEARCHICON from "../../Img/searchicon.png";
 import WRITEICON from "../../Img/WRITE.png";
 import Directed_card from "./Directed_card";
 import Directed_main_select from "./Directed_main_select";
@@ -44,20 +42,16 @@ const Directed_main = (props) => {
   const onChange = (e) => {
     const { name, value } = e.target;
     const nextInputs = {
-      //스프레드 문법으로 기존의 객체를 복사한다.
+     
       ...inputs,
       [name]: value,
     };
-    //만든 변수를 seInput으로 변경해준다.
+   
     setInputs(nextInputs);
 
-    console.log(inputs);
   };
 
-  // const sendValue=(props)=>{
-  //     props.getsetValue2("test")
-  // }
-  //props 개념에대해 다시 알아봐야할것같다... getsetValue2 인자에 props를 메인에서 props를 읽을수없다
+
   const getsetValue2 = (getData) => {
     props.getsetValue2(getData);
   };
@@ -72,8 +66,6 @@ const Directed_main = (props) => {
           ) //status상태만붙여주고
           .then(function (response) {
             setGetdata(response.data);
-
-            console.log("1번케이스", response);
           });
       } else {
         axios
@@ -86,7 +78,6 @@ const Directed_main = (props) => {
           .then(function (response) {
             setGetdata(response.data);
 
-            console.log("2번케이스", response);
           });
       }
     } else {
@@ -101,7 +92,7 @@ const Directed_main = (props) => {
           .then(function (response) {
             setGetdata(response.data);
 
-            console.log("3번케이스", response);
+
           });
       } else {
         axios
@@ -118,7 +109,7 @@ const Directed_main = (props) => {
           .then(function (response) {
             setGetdata(response.data);
 
-            console.log("4번케이스", response);
+  
           });
       }
     }
@@ -171,9 +162,7 @@ const Directed_main = (props) => {
         </div>
       </div>
       <div className="Directed-main-cardmain-container">
-        {/* <Directed_card getData={getData}></Directed_card> */}
-        {/* {getData.map((menu)=>(menu.requesterId))
-                } */}
+   
         {
           //워닝이뜨기떄문에 key값설정해야함
           getData.map((menu, index) => (<Directed_card getData={getData[index]} key={index} getsetValue3={getsetValue2}></Directed_card>))

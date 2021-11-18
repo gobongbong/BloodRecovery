@@ -1,12 +1,12 @@
 .Directed-inquire-default-data-container{
     height: 100%;
-    background-color: yellow;
+
 }
 .Directed-inquire-default-class{
     margin: auto;
     width: 40%;
     height: 50%;
-    background-color: brown;
+
     border-radius: 15px 15px 15px 15px;
     border: 5px dotted blue;
     text-align: center;
@@ -24,7 +24,6 @@
 .Directed-inquire-default-btn-container{
     width: 100%;
     height: 25%;
-    background-color: chocolate;
     margin-top: 2%;
     float: left;
 }
@@ -40,7 +39,6 @@
 }
 .Directed-inqire-default-info{
     width: 40%;
-    background-color: antiquewhite;
     margin: auto;
     font-size: 8px;
     text-align: center;

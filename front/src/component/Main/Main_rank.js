@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from "react";
-import Test_img1 from "../../test/Test_img1.jpg";
 import BEFORELOGIN from "../../Img/MainIMG/beforelogin.png";
 import "./Main_rank.css";
 import Main_rank_text from "./Main_rank_text";

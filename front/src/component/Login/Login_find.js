@@ -118,18 +118,26 @@ function Login_find() {
         
 
         if(text==="id")
-        {axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",{name:inputs.find_name,personalNumber:inputs.find_personal})
+        {
+            if(inputs.find_name===""){alert("성명을 입력해주세요")}
+        else if(inputs.find_personal===""){alert("주민등록번호를 입력해주세요")}
+        else
+            {axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",{name:inputs.find_name,personalNumber:inputs.find_personal})
         .then(function(res){
            if(res.data.result===true){alert("실명인증이 완료되었습니다.")}
             {setcheck(true)}
-        })
+        })}
          }
          else if(text==="password")
-         {axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",{name:inputsPassword.findps_name,personalNumber:inputsPassword.findps_personal})
+         {
+            if(inputsPassword.findps_name===""){alert("성명을 입력해주세요")}
+        else if(inputsPassword.findps_personal===""){alert("주민등록번호를 입력해주세요")}
+        else{ 
+            axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",{name:inputsPassword.findps_name,personalNumber:inputsPassword.findps_personal})
          .then(function(res){
             if(res.data.result===true){alert("실명인증이 완료되었습니다.")}
              {setcheckps(true)}
-         })
+         })}
 
          }
 

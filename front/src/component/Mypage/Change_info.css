@@ -52,9 +52,13 @@
   float: left;
 }
 .Change-info-nickname {
-  font-size: 25px;
+  font-size: 22px;
   height: auto;
-  width: auto;
+  width: 150px;
+  margin-left: 33px;
+  background-color: #f39d9d;
+  border-radius: 8px;
+  text-align: center;
 
 }
 .nickname-change {
@@ -73,7 +77,6 @@
   height: 150px;
   border-radius: 100%;
   border: 2px solid coral;
-  background-color: rgb(0, 255, 21);
   overflow: hidden;
   margin: auto;
  
@@ -113,12 +116,13 @@ float: left;
   margin-top: 1.5%;
 }
 .Change-info-big{
-  width: 25%;
+  width: 20%;
   margin: auto;
-  text-align: center;
+  text-align: left;
+
 }
 .Change-info-usericon-class {
-  width: 42px;
+  width: 32px;
   height: 40px;
   /* margin-left: 40%; */
 

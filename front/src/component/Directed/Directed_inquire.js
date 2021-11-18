@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
 import Menu_left_nav from '../Common/Header/Menu_left_nav';
 import DIRECTEDIMG from '../../Img/DIRECTEDIMG.png';
 import GOBACKBTN from '../../Img/DirectedIMG/arrow.png';
-import Common_Button_IMG from "../Common/Button/Common_Button_IMG";
-import DIRECTED_BUTTON_IMG from "../../Img/DirectedIMG/DIRECTEDIMGWHITE.png";
 import BLOODDROPIMG from "../../Img/DirectedIMG/blood-drop.png";
 import BRONZE from "../../Img/Grade/4_bronze.png";
 import SIVER from "../../Img/Grade/3_silver.png";
@@ -22,12 +19,9 @@ const Directed_inquire = (id) => {
     const [getData, setGetData] = useState();
     const [viewData, setViewData] = useState(false);
     const [getApplicants, setGetApplicants] = useState();
-    const [viewdata1,setviewdata1]=useState(true);
-    const sendValue = () => {
-        id.getsetValue3()
+    const [viewdata1,setviewdata1]=useState(0);
+   ;
 
-
-    }
     const getValue = () => {
 
         setViewData(!viewData);
@@ -42,6 +36,7 @@ const Directed_inquire = (id) => {
             .then(function (response) {
 
                 setGetData(response);
+                console.log(response.data.completeStatus)
 
             });
 
@@ -52,13 +47,12 @@ const Directed_inquire = (id) => {
 
             .then(function (response) {
 
-                setGetApplicants(response);
-               
+                setGetApplicants(response); 
                 check(response.data)
 
             });
 
-    }, [viewdata1]);
+    }, [getApplicants]);
     const deleteData = () => {
 
         axios
@@ -90,17 +84,25 @@ const Directed_inquire = (id) => {
 
     }
     const check=(resdata)=>{
- 
+        if(resdata.length===0)
+        {
+            setviewdata1("3")
+        }
+        //console.log(sessionStorage.getItem("directId"));
         for(var i in resdata ){
           
-            if(resdata[i].applicantIdentify===sessionStorage.getItem("userId"))
+            if(resdata[i].applicantIdentify===sessionStorage.getItem("userId"))//신청자명단에 있으면
             {
-        
-                setviewdata1(false)
+                if(resdata[i].applyStatus===true)//명단에 있고 완료
+                {
+                    setviewdata1("1")
+                }
+                else
+                setviewdata1("2")//명단에 있고 아직
                 break;
             }
-            else setviewdata1(true)
-
+            else setviewdata1("3")//신청자명단에 없으면
+           
         }
     }
     const levelIMG = (level) => {
@@ -111,6 +113,23 @@ const Directed_inquire = (id) => {
         else if (level === 4) return VIP;
     }
 
+    const viewfn =()=>{
+        if(getData?.data.completeStatus===true) return null
+else{        if(viewdata1==="3"){//신청자명단에없으면
+            return<Directed_inquire_default id={id} getValue={getValue} ></Directed_inquire_default>
+        }
+        else if(viewdata1==="1")//신청했고 이미 완료면
+       {
+            return null
+
+       }
+       else if(viewdata1==="2")//신청했꼬 아직아님
+       {
+           return (<Directed_inquire_default_data id={getData?.data.requesterUserId}></Directed_inquire_default_data>)
+       }
+    }
+
+    }
     return (
 
 
@@ -121,7 +140,7 @@ const Directed_inquire = (id) => {
                   
                 </div>
                 <div className="Directed-inquire-nav-goback">
-                    <img className="Directed-inquire-goback-bntimg-class" onClick={() => id.addPage(sessionStorage.getItem("lastbefore"))} src={GOBACKBTN}></img>
+                    <img className="Directed-inquire-goback-bntimg-class" onClick={() => id.addPage("지정헌혈")} src={GOBACKBTN}></img>
                 </div>
             </div>
             <div className="Directed-inquire-content-container">
@@ -168,7 +187,8 @@ const Directed_inquire = (id) => {
                         </div>
                     </div>
                     <div className="Directed-inquire-footer-container">
-                        {getData?.data.requesterUserId === sessionStorage.getItem("userId") ? getData?.data.completeStatus===false?
+                        {getData?.data.requesterUserId === sessionStorage.getItem("userId") ? 
+                        getData?.data.completeStatus===false?
                         <div>
                             <div className="Directed-inquire-footer-mypost">
                                 <div className="Directed-inquire-footer-delete" onClick={deleteData}>
@@ -177,9 +197,9 @@ const Directed_inquire = (id) => {
                                 <div className="Directed-inquire-footer-repost" onClick={()=>id.addPage("지정헌혈_수정")}>
                                     수정
                                 </div>
-                            </div>{ }
-                        </div>:null : viewdata1===false||viewData===true? <Directed_inquire_default_data id={getData?.data.requesterUserId}></Directed_inquire_default_data>
-                            : <Directed_inquire_default id={id} getValue={getValue} viewdata1={viewdata1}></Directed_inquire_default>}
+                            </div>
+                        </div>:null :viewfn()} 
+                    
 
                         <div className="Directed-inquire-footer-applicant">
                             {getApplicants?.data.map((menu,index)=>(getApplicants?.data[index].applyStatus===false?<div className="Directed-inquire-footer-appname">{getApplicants?.data[index].applicantNickname+"님 지정헌혈 예정입니다."}</div>

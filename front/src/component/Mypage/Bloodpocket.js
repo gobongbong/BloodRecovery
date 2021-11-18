@@ -261,8 +261,7 @@ function Bloodpocket_main(on) {
   }
   
   const onChange = (e) => {
-    const img = e.target.files[0];
-    console.log("리사이징",img)
+
     filetoimg()
     // const formData = new FormData();
     // formData.append("file", img);

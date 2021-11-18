@@ -7,7 +7,6 @@ import GOLD from "../../Img/Grade/2_gold.png";
 import VIP from "../../Img/Grade/1_vip.png";
 import WRITEWHITEIMG from "../../Img/DirectedIMG/WRITE_WHITE.png";
 import Common_Button_IMG from "../../component/Common/Button/Common_Button_IMG";
-import POINTICON from "../../Img/point.png";
 import Menu_left_nav from "../Common/Header/Menu_left_nav";
 // import { addPage } from "../Modalmove/subscribers/action";
 // import { connect } from "react-redux";
@@ -16,7 +15,7 @@ import { connect, ReactReduxContext } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
 import S3Upload from "../Common/Function/S3fileUpload";
 import BLOODICON from "../../Img/광기1.png";
-import BLOODGIF from "../../Img/광기움짤.gif";
+import BEFORELOGIN from "../../Img/MainIMG/beforelogin.png";
 
 const gradefunction = (Grade) => {
   if (Grade === 1)
@@ -37,6 +36,7 @@ function Change_info(props, getData) {
   const [getIMG, setIMG] = useState(null);
   const [nicknameCheck, setNicknameCheck] = useState(false);
   const [nicknamesameCheck, setNicknamesameCheck] = useState(false);
+  const [rerender,setrerender]=useState(false);
   const [inputs, setInputs] = useState({
     nickname: "",
     profile: "",
@@ -72,7 +72,6 @@ function Change_info(props, getData) {
       )
       .then(function (response) {
         setUser(response.data);
-        console.log("rr", response);
         const fistinput = {
           nickname: response.data.nickname,
           profile: "",
@@ -80,7 +79,7 @@ function Change_info(props, getData) {
         }
         setInputs(fistinput)
       });
-  }, []);
+  }, [rerender]);
 
   const senddata = () => {
     //변경이없으면 프로필만변경
@@ -98,6 +97,7 @@ function Change_info(props, getData) {
           // console.log(response);
         });
       alert("개인정보가 수정되었습니다.");
+      setrerender(!rerender)
 
     }
     else {
@@ -116,6 +116,7 @@ function Change_info(props, getData) {
           // console.log(response);
         });
         alert("개인정보가 수정되었습니다.");
+        setrerender(!rerender)
 
       }
       else { alert("중복확인을 해주세요") }
@@ -138,6 +139,7 @@ function Change_info(props, getData) {
           if (res.data.result === true) {
             alert("사용가능한 닉네임입니다.");
             setNicknamesameCheck(nicknameEXP.test(inputs.nickname));
+          
           }
           else {
             alert("중복된 닉네임입니다.")
@@ -166,7 +168,7 @@ function Change_info(props, getData) {
       </div>
       <div className="Change-info-profilecontainer">
         <div className="Change-info-profile">
-          <img className="Mypage-main-profileimg" src={user?.profile}></img>
+          <img className="Mypage-main-profileimg" src={user?.profile===null?BEFORELOGIN:user?.profile}></img>
         </div>
         <div className="Mypage-profile-footer-upload">
           <S3Upload getfilename={getfilename} />

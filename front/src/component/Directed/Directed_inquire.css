@@ -4,7 +4,7 @@
   height: 734px;
   margin: auto;
 
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 .Directed-inquire-nav-container {
   float: left;
@@ -12,14 +12,14 @@
   width: 100%;
   /* background-color: aqua; */
   border-bottom: solid 4px #fb4d4e;
-  background-color: rgb(12, 74, 128);
+  /* background-color: rgb(12, 74, 128); */
 }
 .Directed-inquire-nav-class {
   margin-left: 3%;
   margin-top: 1%;
   width: 89%;
   float: left;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 .Directed-inquire-content-container {
   width: 100%;
@@ -29,7 +29,7 @@
 }
 .Directed-inquire-content-class {
   margin: auto;
-  background-color: rgb(155, 155, 155);
+  /* background-color: rgb(155, 155, 155); */
   width: 80%;
   height: 90%;
   /* height: 70%; */
@@ -42,19 +42,19 @@
   width: 40px;
   height: 40px;
   float: left;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 .Directed-inquire-nav-goback {
   width: 8%;
   height: 100%;
-  background-color: coral;
+  /* background-color: coral; */
   float: left;
 }
 .Directed-inquire-card-class {
   width: 100%;
   float: left;
   height: auto;
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
   border: 2px solid #fb4d4e;
   border-radius: 50px 50px 50px 50px;
 }
@@ -66,20 +66,20 @@
   width: 100%;
   height: 50px;
   border-bottom: solid 4px #fb4d4e;
-  background-color: rgba(0, 0, 255, 0.075);
+  /* background-color: rgba(0, 0, 255, 0.075); */
 }
 .Directed-inquire-card-title-class {
   float: left;
   margin-top: 3%;
   width: 75%;
-  background-color: aqua;
+  /* background-color: aqua; */
   font-size: 16px;
 }
 .Directed-inquire-card-data-class {
   float: left;
   margin-top: 3%;
   width: 25%;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   font-size: 16px;
 }
 
@@ -89,7 +89,7 @@
   height: 5%;
   margin-top: 1%;
   margin-bottom: 1%;
-  background-color: rgb(168, 85, 60);
+  /* background-color: rgb(168, 85, 60); */
 }
 .Directed-inquire-card-info-location {
   width: 10%;
@@ -119,19 +119,19 @@
   margin: auto;
   height: auto;
   width: 100%;
-  background-color: rgb(0, 255, 13);
+  /* background-color: rgb(0, 255, 13); */
   font-size: 16px;
   float: left;
 }
 .Directed-inquire-card-context-img-class {
   width: 100%;
   height: 10%;
-  background-color: #fb4d4e;
+  /* background-color: #fb4d4e; */
 }
 .Directed-inquire-cardset-img {
   width: 200px;
 
-  background-color: rgb(63, 158, 158);
+  /* background-color: rgb(63, 158, 158); */
 }
 .Directed-inquire-card-context-margin {
   width: 200px;
@@ -142,24 +142,24 @@
   margin-top: 0%;
   width: 17%;
   height: 80%;
-  background-color: #fb4d4e;
+  /* background-color: #fb4d4e; */
 }
 .Directed-inquire-card-writer-icon {
   float: left;
   margin-top: 0%;
   height: 80%;
   width: 30%;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 .Directed-inquire-card-writername-class {
   margin-top: 5%;
   float: left;
-  background-color: blue;
+  /* background-color: blue; */
   width: 70%;
 }
 .Directed-inquire-card-footer-class {
   height: 50px;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 .Directed-inquire-card-footer-status {
   margin: auto;
@@ -173,7 +173,7 @@
   float: left;
   height: 40%;
   margin-top: 3%;
-  background-color: rgb(55, 0, 255);
+  /* background-color: rgb(55, 0, 255); */
 }
 
 .Directed-inquire-card-footer-statueIMG {
@@ -193,29 +193,26 @@
   height: auto;
 
   text-align: center;
-  background-color: aqua;
-  border-top: 1px solid rgb(91, 92, 91);
+  /* background-color: aqua; */
+ 
   color: #fb4d4e;
 }
 .Directed-inquire-footer-appname {
-  background-color: beige;
+  /* background-color: beige; */
 }
 .Directed-inquire-footer-mypost {
   width: 100%;
   height: 15%;
-  background-color: #941515;
   font-size: 17px;
 }
 .Directed-inquire-footer-repost {
   width: 8%;
-  background-color: rgb(158, 93, 8);
   float: right;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
 .Directed-inquire-footer-delete {
   width: 8%;
-  background-color: rgb(190, 182, 170);
   float: right;
   color: rgb(0, 0, 0);
   cursor: pointer;
