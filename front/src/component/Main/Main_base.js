@@ -73,27 +73,24 @@ function Main_base(props) {
     props.addPage(text);
     setModalIsOpen(true);
   };
-  const getsetValue1 = (text) => {
-    console.log(text);
-    alert("회원가입이 완료되었습니다.");
-    setmodal("로그인");
-  };
+
   const getsetValue2 = (getData) => {
-    console.log("여기로~", getData);
-    //setGetidValue(getData)
     sendid = getData;
-    console.log("입력아이디", sendid);
-    // datesent(getData)
     setmodal("지정헌혈조회");
   };
   const getsetValue3 = () => {
-    console.log("여기로~");
-
     setmodal("지정헌혈");
   };
 
   const logoutsuccess = () => {
     //로그인수정 중복된값을 넣어서 새로 렌더링이안되었던거같음
+ 
+  
+    if(sessionStorage.getItem("last")=='"마이페이지"')
+    {
+    movepage("로그인")
+      
+    }
     settestvalue(!testvalue);
     console.log("logout");
   };

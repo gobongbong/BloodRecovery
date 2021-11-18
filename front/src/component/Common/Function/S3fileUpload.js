@@ -80,6 +80,7 @@ function S3Upload(props) {
 
   const handleFileInput = (e) => {
     const file = e.target.files[0];
+    console.log("typeof",typeof(file))
     const fileExt = file.name.split(".").pop();
     setFilebuffer(fileExt);
     if (

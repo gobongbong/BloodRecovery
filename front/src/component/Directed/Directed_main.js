@@ -13,9 +13,6 @@ import axios from "axios";
 
 //0관리자 1
 const Directed_main = (props) => {
-  var key1;
-  let form = new FormData();
-  var arrNumber = new Array();
   const [getSi, setGetSi] = useState("전체");
   const [getdo, setGetdo] = useState("");
   const [getData, setGetdata] = useState([]);

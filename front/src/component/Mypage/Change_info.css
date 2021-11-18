@@ -1,3 +1,4 @@
+
 .Change-main-container-class {
   width: 970px;
   height: 734px;
@@ -34,7 +35,7 @@
   width: 100%;
   float: left;
   height: 35%;
-  margin-top: 2%;
+  margin-top: 5%;
   /* background-color: rgb(0, 195, 255); */
 }
 
@@ -50,27 +51,24 @@
   height: 100%;
   float: left;
 }
-.Mypage-main-nickname {
+.Change-info-nickname {
   font-size: 25px;
-  /* background-color: #fb4d4e; */
   height: auto;
+  width: auto;
+
 }
 .nickname-change {
-  /* background-color: #fb4d4e; */
-  /* float: left; */
   padding-left: 35%;
   padding-top: 15px;
 }
 
 .Mypage-profile-footer-upload {
-  /* background-color: #fb4d4e; */
   padding-left: 28%;
   padding-top: 15px;
-  /* padding-bottom: -55%; */
   width: 50%;
   height: 40px;
 }
-.Change-info-profile {
+.Change-info-profile{
   width: 150px;
   height: 150px;
   border-radius: 100%;
@@ -78,10 +76,51 @@
   background-color: rgb(0, 255, 21);
   overflow: hidden;
   margin: auto;
+ 
 }
-.Change-info-profilecontainer {
-  float: left;
+.Change-info-profilecontainer{
+float: left;
   width: 100%;
   height: 45%;
   margin-top: 5%;
+}
+.Change-img-userimg{
+
+  width: 100%;
+    float: left;
+
+}
+.Change-info-nicknamerule{
+
+  width: 40%;
+  margin-left: 2%;
+  
+  
+}
+.Change-info-samecheckbtn{
+  background-color: #fb4d4e;
+  width: 12%;
+  height: 30px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  float: right;
+  margin-right: 44%;
+  cursor: pointer;
+}
+.Change-info-bigbig{
+  width: 100%;
+  margin-top: 1.5%;
+}
+.Change-info-big{
+  width: 25%;
+  margin: auto;
+  text-align: center;
+}
+.Change-info-usericon-class {
+  width: 42px;
+  height: 40px;
+  /* margin-left: 40%; */
+
+  float: left;
 }

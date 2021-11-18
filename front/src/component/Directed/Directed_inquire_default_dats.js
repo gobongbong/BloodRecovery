@@ -41,26 +41,7 @@ const Directed_inquire_default_data = (id) => {
     region: qwren,
   });
 
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [modal, setmodal] = useState();
-  // const modal_style1 = {
-  //     overlay: {
-  //       position: "fixed",
-  //       top: 0,
-  //       bottom: 0,
-  //       left: 0,
-  //       right: 0,
-  //       backgroundColor: "rgba(0, 0, 0,0 )",
-  //     },
-  //     content: {
-  //       left: 350,
-  //       right: 350,
-  //       top: 80,
-  //       bottom: 80,
-  //       zIndex: 0,
-  //       padding: 10,
-  //     },
-  //   };
+ 
 
   useEffect(() => {
     axios
@@ -74,11 +55,7 @@ const Directed_inquire_default_data = (id) => {
         setGetData(response);
       });
   }, []);
-  // const btnon=()=>{
-  //     console.log("?",id.id)
-  //     setModalIsOpen(true)
-
-  // }
+ 
   const uploadFile = (file1, pp) => {
     const profile_params = {
       ACL: "public-read",
@@ -101,13 +78,57 @@ const Directed_inquire_default_data = (id) => {
       "https://bloodrecovery.s3.us-east-2.amazonaws.com/" + profile_params.Key
     );
   };
-  const onChange = (e) => {
-    const img = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", img);
-    //console.log("img", img)
-
-    const fileExt = img.name.split(".").pop();
+  const dataURLtoFile = (dataurl, fileName) => {
+ 
+    var arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), 
+        n = bstr.length, 
+        u8arr = new Uint8Array(n);
+        
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    
+    return new File([u8arr], fileName, {type:mime});
+}
+  function filetoimg()
+  { var dataURI
+    var file = document.querySelector('#fileuploading');
+    
+      var fileList = file.files ;
+      // 읽기
+      var reader = new FileReader();
+      reader.readAsDataURL(fileList [0]);
+  
+      //로드 한 후
+      reader.onload = function  () {
+          //로컬 이미지를 보여주기
+     
+          
+          //썸네일 이미지 생성
+          var tempImage = new Image(); //drawImage 메서드에 넣기 위해 이미지 객체화
+          tempImage.src = reader.result; //data-uri를 이미지 객체에 주입
+          tempImage.onload = function() {
+              //리사이즈를 위해 캔버스 객체 생성
+              var canvas = document.createElement('canvas');
+              var canvasContext = canvas.getContext("2d");
+              
+              //캔버스 크기 설정
+              canvas.width = 600; //가로 100px
+              canvas.height = 600; //세로 100px
+              
+              //이미지를 캔버스에 그리기
+              canvasContext.drawImage(this, 0, 0, 600, 600);
+              //캔버스에 그린 이미지를 다시 data-uri 형태로 변환
+              dataURI = canvas.toDataURL("image/jpeg");
+              
+   
+              var file2 = dataURLtoFile(dataURI,'file');
+              const formData = new FormData();
+    formData.append("file", file2);
+  
+    const fileExt = "jpg"
     //console.log("img==", img)
     //setFilebuffer(fileExt);
     //
@@ -115,7 +136,7 @@ const Directed_inquire_default_data = (id) => {
     //   alert('jpg 파일만 Upload 가능합니다.');
     //   return;
     // }
-    axios
+ axios
       .post(
         "http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",
         {
@@ -131,19 +152,43 @@ const Directed_inquire_default_data = (id) => {
             data: formData,
             transformResponse: function (data) {
               console.log("log", JSON.parse(data).date);
-              var senddate = "";
-              for (
-                var i = 0;
-                i < 10;
-                i++ //for(var i in JSON.parse(data).date)
-              ) {
-                if (JSON.parse(data).date[i] === ".") {
-                  senddate = senddate + "-";
-                } else if (JSON.parse(data).date[i] === " ") {
-                  senddate = senddate + "0";
-                } else senddate = senddate + JSON.parse(data).date[i];
+
+              var beforedate=JSON.parse(data).date
+              var finaldate=""
+              for(var i=0; i<beforedate.length;i++)
+              {
+                if(beforedate[i]===" ")
+                {
+                  continue;
+                }
+                else
+                finaldate=finaldate+beforedate[i]
               }
-              senddate = senddate + "T00:00:00Z";
+           
+             beforedate=finaldate.split('.');
+             console.log(beforedate[0])
+             console.log(beforedate[1])
+             console.log(beforedate[2])
+             console.log("dd",finaldate)
+
+              var senddate =beforedate[0]+'-'
+              if(beforedate[1].length>=2)
+              {
+                senddate=senddate+beforedate[1][0]+beforedate[1][1]+'-';
+              }
+              else{
+
+                senddate=senddate+'0'+beforedate[1][0]+'-';
+              }
+              if(beforedate[2].length>=2){
+
+                senddate=senddate+beforedate[2][0]+beforedate[2][1];
+              }
+              else{
+                senddate=senddate+'0'+beforedate[2][0]
+              }
+
+                  senddate=senddate+"T00:00:02Z"
               console.log("senddate", senddate);
               axios
                 .post(
@@ -157,9 +202,9 @@ const Directed_inquire_default_data = (id) => {
                 )
                 .then(function (res) {
                   console.log("과연결과는?", res.data);
-                  if (res.data === false) {
+                  if (res.data === true) {
                     //true로바꿔줘야함
-                    var im = uploadFile(img, fileExt);
+                    var im = uploadFile(file2, fileExt);
                     axios
                       .post(
                         "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/" +
@@ -167,6 +212,7 @@ const Directed_inquire_default_data = (id) => {
                         { code: JSON.parse(data).code, image: im }
                       )
                       .then(function (res) {
+                        alert("인증이 완료되었습니다.")
                         console.log("업로드까지 끝");
                       });
                   } else {
@@ -176,29 +222,95 @@ const Directed_inquire_default_data = (id) => {
             },
           });
 
-          // axios.post("http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/아이디1", {code:"18",image:null})
-          // .then(function(res){
-          //   console.log("업로드까지 끝")
-          // })
-          // if (JSON.parse(data).code === null) { alert("code가 읽히지않았습니다. 다시 사진을 찍어주세요") }
-          // else {
-
-          //   console.log("날짜가있었나요?",JSON.parse(data))
-          //   axios.post("http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/apply", {code:JSON.parse(data).code})
-          //   .then(function (res) {
-          //     console.log("trs",res)//bims 확인, s3이미지 업로드와 카드 등록하기
-          //     if(res.data===true){ //s3이미지 업로드
-          //       var im=uploadFile(img,fileExt)
-          //       axios.post("http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/아이디1", {code:JSON.parse(data).code,image:im})
-          //       .then(function(res){
-          //         console.log("업로드까지 끝")
-          //       })
-          //     }
-          //     else{alert("BIMS 조회 결과, 해당 정보가 없습니다.")}
-          //    })
-          // }
+       
         }
       });
+   
+             
+          };
+
+  }; 
+
+
+  }
+
+
+
+
+  const onChange = (e) => {
+   
+    filetoimg()
+    //console.log("img==", img)
+    //setFilebuffer(fileExt);
+    //
+    // if(img.type !== 'image/png' || fileExt !=='png'){
+    //   alert('jpg 파일만 Upload 가능합니다.');
+    //   return;
+    // }
+    // axios
+    //   .post(
+    //     "http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",
+    //     {
+    //       name: sessionStorage.getItem("userId"),
+    //       personalNumber: "111111111",
+    //     }
+    //   )
+    //   .then(function (res) {
+    //     if (res.data.result === true) {
+    //       axios({
+    //         method: "post",
+    //         url: "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/ocr",
+    //         data: formData,
+    //         transformResponse: function (data) {
+    //           console.log("log", JSON.parse(data).date);
+    //           var senddate = "";
+    //           for (
+    //             var i = 0;
+    //             i < 10;
+    //             i++ //for(var i in JSON.parse(data).date)
+    //           ) {
+    //             if (JSON.parse(data).date[i] === ".") {
+    //               senddate = senddate + "-";
+    //             } else if (JSON.parse(data).date[i] === " ") {
+    //               senddate = senddate + "0";
+    //             } else senddate = senddate + JSON.parse(data).date[i];
+    //           }
+    //           senddate = senddate + "T00:00:00Z";
+    //           console.log("senddate", senddate);
+    //           axios
+    //             .post(
+    //               "http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/direct/directedItem/" +
+    //                 sessionStorage.getItem("directId") +
+    //                 "/apply",
+    //               {
+    //                 userId: sessionStorage.getItem("userId"),
+    //                 date: senddate,
+    //               }
+    //             )
+    //             .then(function (res) {
+    //               console.log("과연결과는?", res.data);
+    //               if (res.data === false) {
+    //                 //true로바꿔줘야함
+    //                 var im = uploadFile(img, fileExt);
+    //                 axios
+    //                   .post(
+    //                     "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/" +
+    //                       sessionStorage.getItem("userId"),
+    //                     { code: JSON.parse(data).code, image: im }
+    //                   )
+    //                   .then(function (res) {
+    //                     console.log("업로드까지 끝");
+    //                   });
+    //               } else {
+    //                 alert("잘못된 인증입니다.");
+    //               }
+    //             });
+    //         },
+    //       });
+
+        
+    //     }
+    //   });
   };
 
   return (
@@ -243,7 +355,7 @@ const Directed_inquire_default_data = (id) => {
         </div>
         <div className="Directed-inquire-default-info-container">
           <div className="Directed-inqire-default-info">
-            요청 기간 이내에 지정헌혈 인증을 완료해주세요.
+          신청이 완료되었습니다. 기간내에 인증을 완료해주세요. <br/>3번 이상 미인증시 패널티가 부여됩니다.
           </div>
         </div>
       </div>

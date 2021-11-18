@@ -1,5 +1,5 @@
 .Mypage-main-class {
-  width: 100vh;
+  width: 100%;
 }
 .Mypage-main-container-class {
   width: 970px;
@@ -25,9 +25,9 @@
 }
 .Mypage-main-Header-container-class {
   float: left;
-  width: 100vw;
+  width: 100%;
   height: 100%;
-  /* background-color: brown; */
+
 }
 .Mypage-main-Header-class {
   width: 13%;
@@ -63,12 +63,13 @@
 .Mypage-main-nickname {
   margin-top: 4px;
   margin: auto;
-  width: 130px;
-  height: 50px;
-  text-align: center;
-  font-size: 30px;
+  width: 160px;
+  height: auto;
+  text-align: left;
+  font-size: 25px;
   padding-top: 2%;
-  /* background-color: brown; */
+  margin-left: 45%;
+  /* background-color: #fb4d4e; */
 }
 .Mypage-main-username {
   margin: auto;

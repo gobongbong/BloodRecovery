@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import './Directed_write_select.css';
 function Directed_write_select(props) {
     const [getState, setState] = useState("서울특별시");
-    const [getState2, setState2] = useState("");
+    const [getState2, setState2] = useState("종로구");
 
  
 

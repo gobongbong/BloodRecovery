@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import Test1 from "./component/Main/Test1";
 import Board_main from "./component/Board/Board_main";
 import Directed_main from "./component/Directed/Directed_main";
 import Notice_main from "./component/Notice/Notice_main";
@@ -16,11 +15,9 @@ function App() {
   return (
     <Provider store={store}>
     <div className="App">
-     <Link to="/test">test</Link>
- 
+  
 
         <Switch>
-          <Route exact={true} path="/test1" component={Test1} />
           <Route exact path="/board" component={Board_main} />
           <Route exact path="/directed" component={Directed_main} />
           <Route exact path="/notice" component={Notice_main} />

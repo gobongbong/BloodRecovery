@@ -101,6 +101,9 @@ const Join_userdata = (props) => {
             alert("사용가능한 아이디입니다.");
             setBtnid(idEXP.test(join_id));
           }
+          else{
+            alert("중복된 아이디입니다.")
+          }
         });
     }
     console.log("아이디 유효성", idEXP.test(join_id));
@@ -113,7 +116,7 @@ const Join_userdata = (props) => {
       axios
         .get(
           "http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/nicknameCheck/" +
-            join_nickname
+            inputs.join_nickname
         )
         .then(function (res) {
           //false면 가입불가능 true면 가입가능
@@ -121,6 +124,9 @@ const Join_userdata = (props) => {
           if (res.data.result === true) {
             alert("사용가능한 닉네임입니다.");
             setBtnNickname(nicknameEXP.test(join_nickname));
+          }
+          else{
+            alert("중복된 닉네임입니다.")
           }
         });
     }

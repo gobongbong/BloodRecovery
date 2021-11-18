@@ -6,7 +6,8 @@ const Header_nav = (props) => {
     props.getsetValue(text);
   };
   const logout = () => {
-    sessionStorage.clear();
+   
+    sessionStorage.removeItem("userId");
     props.logoutsuccess();
   };
   return (
