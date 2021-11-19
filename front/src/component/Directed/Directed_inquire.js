@@ -33,7 +33,7 @@ const Directed_inquire = (id) => {
         setGetData(response);
   
       });
-  }, []);
+  }, [getData]);
   useEffect(() => {
     axios
       .get(

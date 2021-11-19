@@ -66,7 +66,7 @@ const Directed_inquire_default_data = (id) => {
     };
 
     myBucket.putObject(profile_params, (err, data) => {
-      successAlert.successAlert("이미지 업로드가 완료되었습니다.");
+      // successAlert.successAlert("이미지 업로드가 완료되었습니다.");
       getfilename(
         "https://bloodrecovery.s3.us-east-2.amazonaws.com/" + profile_params.Key
       );
