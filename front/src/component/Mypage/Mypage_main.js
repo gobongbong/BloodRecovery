@@ -34,7 +34,7 @@ function Mypage_main(props, getData) {
       )
       .then(function (response) {
         setUser(response.data);
-        console.log("rr", sessionStorage.getItem("userId"));
+       
       });
   }, []);
 

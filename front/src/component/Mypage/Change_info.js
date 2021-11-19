@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Change_info.css";
 import BRONZE from "../../Img/Grade/4_bronze.png";
@@ -11,12 +11,12 @@ import Menu_left_nav from "../Common/Header/Menu_left_nav";
 // import { addPage } from "../Modalmove/subscribers/action";
 // import { connect } from "react-redux";
 import GOBACKBTN from "../../Img/DirectedIMG/arrow.png";
-import { connect, ReactReduxContext } from "react-redux";
+import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
 import S3Upload from "../Common/Function/S3fileUpload";
 import BLOODICON from "../../Img/광기1.png";
 import BEFORELOGIN from "../../Img/MainIMG/beforelogin.png";
-
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 const gradefunction = (Grade) => {
   if (Grade === 1)
     //BRONZE 예정
@@ -51,11 +51,11 @@ function Change_info(props, getData) {
     };
     //만든 변수를 seInput으로 변경해준다.
     if (name === "nickname") {
-      console.log("닉네임 유효성", nicknameEXP.test(e.target.value));
+      // console.log("닉네임 유효성", nicknameEXP.test(e.target.value));
       setNicknameCheck(nicknameEXP.test(e.target.value));
     }
     setInputs(nextInputs);
-    console.log(inputs);
+
 
   };
 
@@ -96,7 +96,7 @@ function Change_info(props, getData) {
         .then(function (response) {
           // console.log(response);
         });
-      alert("개인정보가 수정되었습니다.");
+        successAlert.successAlert("개인정보가 수정되었습니다.");
       setrerender(!rerender)
 
     }
@@ -115,18 +115,18 @@ function Change_info(props, getData) {
         .then(function (response) {
           // console.log(response);
         });
-        alert("개인정보가 수정되었습니다.");
+        successAlert.successAlert("개인정보가 수정되었습니다.");
         setrerender(!rerender)
 
       }
-      else { alert("중복확인을 해주세요") }
+      else { successAlert.errorAlert("중복확인을 해주세요") }
     }
 
   }
 
   const nicknameoverlap = () => {
     if (nicknameEXP.test(inputs.nickname) === false) {
-      alert("닉네임 양식에 맞춰 입력해주세요.");
+      successAlert.errorAlert("닉네임 양식에 맞춰 입력해주세요.");
     } else if (nicknameEXP.test(inputs.nickname) === true) {
       axios
         .get(
@@ -137,12 +137,12 @@ function Change_info(props, getData) {
           //false면 가입불가능 true면 가입가능
           console.log(res.data.result);
           if (res.data.result === true) {
-            alert("사용가능한 닉네임입니다.");
+            successAlert.successAlert("사용가능한 닉네임입니다.");
             setNicknamesameCheck(nicknameEXP.test(inputs.nickname));
           
           }
           else {
-            alert("중복된 닉네임입니다.")
+            successAlert.errorAlert("중복된 닉네임입니다.")
           }
         });
     }

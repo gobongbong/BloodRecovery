@@ -30,7 +30,7 @@ function Point_main(props, getData) {
       )
       .then(function (response) {
         setUser(response);
-        console.log("rr", response);
+       
       });
   }, []);
 
@@ -43,7 +43,7 @@ function Point_main(props, getData) {
       )
       .then(function (response) {
         setNick(response.data);
-        console.log("rr", sessionStorage.getItem("userId"));
+ 
       });
   }, []);
 

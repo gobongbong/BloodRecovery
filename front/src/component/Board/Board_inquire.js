@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
 import Menu_left_nav from "../Common/Header/Menu_left_nav";
 import CARDDONATION from "../../Img/CARDDONATION.png";
 import GOBACKBTN from "../../Img/DirectedIMG/arrow.png";
@@ -16,16 +15,16 @@ import GOLD from "../../Img/Grade/2_gold.png";
 import VIP from "../../Img/Grade/1_vip.png";
 import axios from "axios";
 import Bloodpocket from "../Mypage/Bloodpocket";
-import { connect, ReactReduxContext } from "react-redux";
+import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
 import "./Board_inquire.css";
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 
 const Board_inquire = (id) => {
   const [getData, setGetData] = useState();
   const [modalIsOpen, setModalIsOpen] = useState();
   //새로고침해도 모달창에서 불러온 컴포넌트가 안꺼지게 하는 함수
-  const [modal, setmodal] = useState();
-  const [signal, setsinal] = useState(true);
+
   const [getDonation, setGetDonation] = useState([]);
   const modal_style1 = {
     overlay: {
@@ -55,7 +54,7 @@ const Board_inquire = (id) => {
 
       .then(function (response) {
         setGetData(response);
-        console.log("response1", response);
+        
       });
   }, []);
 
@@ -68,9 +67,8 @@ const Board_inquire = (id) => {
       )
 
       .then(function (response) {
-        alert("게시글이 삭제되었습니다.");
+        successAlert.successAlert("게시글이 삭제되었습니다.");
         id.addPage("헌혈증_기부");
-        console.log("response", response);
       });
   };
 
@@ -84,7 +82,7 @@ const Board_inquire = (id) => {
       )
       .then(function (response) {
         setGetDonation(response);
-        // console.log("response2", response);
+
       });
   }, [getDonation]);
   //실시간 breakdown
@@ -114,7 +112,7 @@ const Board_inquire = (id) => {
   };
   const beDonation = () => {
     if (sessionStorage.getItem("userId") == null) {
-      alert("로그인 후 기부가 가능합니다!");
+      successAlert.errorAlert("로그인 후 기부가 가능합니다!");
     } else {
       setModalIsOpen(true);
       // id.getValue();
@@ -175,7 +173,7 @@ const Board_inquire = (id) => {
                 </div>
               </div>
               <div className="Board-inquire-card-context-class">
-                <pre>{getData?.data.contents}</pre>
+                <pre className="Board-inquire-card-context-classpre">{getData?.data.contents}</pre>
               </div>
               <div className="Board-inquire-card-context-img-class">
                 <div className="Board-inquire-card-context-margin">

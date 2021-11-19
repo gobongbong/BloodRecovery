@@ -119,9 +119,13 @@
   margin: auto;
   height: auto;
   width: 100%;
-  /* background-color: rgb(0, 255, 13); */
+  word-wrap:break-word; word-break:break-all;
   font-size: 16px;
   float: left;
+}
+.Directed-inquire-card-context-classpre{
+  white-space:pre-line;
+
 }
 .Directed-inquire-card-context-img-class {
   width: 100%;
@@ -194,7 +198,7 @@
 
   text-align: center;
   /* background-color: aqua; */
- 
+
   color: #fb4d4e;
 }
 .Directed-inquire-footer-appname {

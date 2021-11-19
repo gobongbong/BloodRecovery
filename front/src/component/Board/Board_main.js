@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Menu_left_nav from "../Common/Header/Menu_left_nav";
 import "./Board_main.css";
-import Board_nav from "./Board_nav";
 import Board_card from "./Board_card";
 import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
 import axios from "axios";
 import CARDDONATION from "../../Img/CARDDONATION.png";
 import WRITEICON from "../../Img/WRITE.png";
-
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 const Board_main = (props) => {
   // var key1;
   // let form = new FormData();
@@ -49,20 +48,17 @@ const Board_main = (props) => {
       ...inputs,
       [name]: value,
     };
-    //만든 변수를 seInput으로 변경해준다.
+  
     setInputs(nextInputs);
 
-    // console.log(inputs);
+ 
   };
 
   const getsetValue2 = (getData) => {
     // console.log("헌혈증기부", getData);
     props.getsetValue2(getData);
   };
-  // const getsetValue3 = () => {
-  //   // console.log("헌혈증기부 조회 백");
-  //   props.getsetValue3();
-  // };
+ 
 
   useEffect(() => {
     if (inputs.direct_main_bloodtype === "") {
@@ -75,7 +71,7 @@ const Board_main = (props) => {
           .then(function (response) {
             setGetdata(response.data);
 
-            console.log("1번케이스", response);
+  
           });
       } else {
         axios
@@ -85,21 +81,13 @@ const Board_main = (props) => {
           .then(function (response) {
             setGetdata(response.data);
 
-            console.log("2번케이스", response);
+      
           });
       }
     }
   }, [selectStatus]);
 
-  // const newdata = () => {
-  //   for (var i = 0; i < getData.length; i++) {
-  //     for (var key in getData[i].length) {
-  //       getData[i][i] = 0;
-  //     }
-  //   }
-  // };
-
-  // const movepage = (text) => {};
+ 
 
   return (
     <div className="Board-main-container">
@@ -120,7 +108,7 @@ const Board_main = (props) => {
             onClick={() =>
               sessionStorage.getItem("userId") !== null
                 ? props.addPage("헌혈증_글쓰기")
-                : alert("로그인을 해주세요")
+                : successAlert.errorAlert("로그인을 해주세요")
             }
             className="Board-main-nav-writeicon-class"
           ></img>
@@ -133,10 +121,8 @@ const Board_main = (props) => {
             key={index}
             getsetValue3={getsetValue2}
           >
-            {console.log("index", index)}
           </Board_card>
         ))}
-        {/* {console.log(getData)} */}
       </div>
     </div>
   );

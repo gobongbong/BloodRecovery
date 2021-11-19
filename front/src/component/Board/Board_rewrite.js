@@ -7,11 +7,10 @@ import { addPage } from "../../component/Modalmove/subscribers/action";
 import S3Upload from "../Common/Function/S3fileUpload";
 import "./Board_rewrite.css";
 import BLOODDROP from "../../Img/DirectedIMG/blood-drop.png";
-import LOCATIONIMG from "../../Img/DirectedIMG/location.png";
 import Common_Button_IMG from "../../component/Common/Button/Common_Button_IMG";
 import WRITEWHITEIMG from "../../Img/DirectedIMG/WRITE_WHITE.png";
 import axios from "axios";
-import moment from "moment";
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 
 function Board_write(props) {
   // const [startDate, setStartDate] = useState();
@@ -57,22 +56,15 @@ function Board_write(props) {
     };
     //만든 변수를 seInput으로 변경해준다.
     setInputs(nextInputs);
-    console.log(inputs);
+  
   };
 
-  // function changeFormat(date, format) {
-  //   if (moment(date).isValid()) {
-  //     return moment(date).format(format);
-  //   } else {
-  //     return null;
-  //   }
-  // }
 
   const senddata = () => {
     if (inputs.request_title === "") {
-      alert("제목을 넣어주세요");
+      successAlert.errorAlert("제목을 넣어주세요");
     } else if (inputs.request_context === "") {
-      alert("내용을 넣어주세요");
+      successAlert.errorAlert("내용을 넣어주세요");
     } else {
       axios
         .put(
@@ -90,7 +82,8 @@ function Board_write(props) {
         .then(function (response) {
           console.log(response);
         });
-      alert("게시글이 수정되었습니다.");
+        successAlert.successAlert("게시글이 수정되었습니다.");
+      props.addPage("헌혈증_기부");
     }
   };
 

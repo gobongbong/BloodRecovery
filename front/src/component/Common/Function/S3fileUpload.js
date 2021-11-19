@@ -3,7 +3,7 @@ import { useState } from "react";
 import AWS from "aws-sdk";
 import { Row, Col, Button, Input, Alert } from "reactstrap";
 import { v4 as uuidv4 } from "uuid";
-
+import * as successAlert from "../MakeAlert/successAlert.js"
 const lysein =
   "U2FsdGVkX18jdsJLZTbKu8q6u5ElnD61jI+BZ8ULufIazll6ygQAqjNSPTNaPC1zeWo0r1UytTb4mjW42Vb/lQ==";
 const geinbge =
@@ -66,7 +66,7 @@ function S3Upload(props) {
     //   })
 
     myBucket.putObject(profile_params, (err, data) => {
-      alert("complete");
+      successAlert.successAlert("이미지 업로드가 완료되었습니다.");
       props.getfilename(
         "https://bloodrecovery.s3.us-east-2.amazonaws.com/" + profile_params.Key
       );
@@ -80,19 +80,19 @@ function S3Upload(props) {
 
   const handleFileInput = (e) => {
     const file = e.target.files[0];
-    console.log("typeof",typeof(file))
-    const fileExt = file.name.split(".").pop();
+   
+    const fileExt = file?.name.split(".").pop();
     setFilebuffer(fileExt);
     if (
       fileExt.toLowerCase() === "png" ||
-      fileExt.toLowerCase === "jpeg" ||
-      fileExt.toLowerCase === "jpg"
+      fileExt.toLowerCase() === "jpeg" ||
+      fileExt.toLowerCase()=== "jpg"
     ) {
       setProgress(0);
       console.log("wowwer", file);
       setSelectedFile(e.target.files[0]);
     } else {
-      alert("png, jpeg, jpg 파일만 업로드 가능합니다.");
+      successAlert.errorAlert("png, jpeg, jpg 파일만 업로드 가능합니다.");
     }
   };
   return (

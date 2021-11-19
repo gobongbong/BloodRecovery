@@ -9,13 +9,12 @@ import { ko } from 'date-fns/esm/locale';
 import S3Upload from "../Common/Function/S3fileUpload";
 import './Directed_rewrite.css';
 import BLOODDROP from '../../Img/DirectedIMG/blood-drop.png';
-import LOCATIONIMG from '../../Img/DirectedIMG/location.png';
 import Common_Button_IMG from '../../component/Common/Button/Common_Button_IMG';
 import WRITEWHITEIMG from '../../Img/DirectedIMG/WRITE_WHITE.png';
 import axios from "axios";
 import moment from "moment";
 import 'react-datepicker/dist/react-datepicker.css';
-
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 
 function Directed_write(props) {
     const [startDate, setStartDate] = useState();
@@ -101,10 +100,10 @@ function Directed_write(props) {
         // console.log("requesterUserId:",sessionStorage.getItem("userId"),"title:",inputs.direct_title,"contents:",inputs.direct_context,"image:",getIMG,"locationSido:",getSido,"locationSigungu:",getSigungu,"periodFrom:",changeFormat(startDate, "yyyy-MM-DD"),"periodTo:",changeFormat(endDate, "yyyy-MM-DD"),"bloodType:",inputs.direct_bloodtype,"bloodMaxCount:",directCount,"patientName:",inputs.direct_patient,"hospitalName:",inputs.direct_hospital,"roomNumber:",inputs.direct_room,"phoneNumber:",inputs.direct_phonenumber)
 
         if (inputs.direct_title === "") {
-            alert("제목을 넣어주세요")
+            successAlert.errorAlert("제목을 넣어주세요")
         }
         else if (inputs.direct_context === "") {
-            alert("내용을 넣어주세요")
+            successAlert.errorAlert("내용을 넣어주세요")
         }
 
         else {
@@ -112,17 +111,12 @@ function Directed_write(props) {
             periodFrom:changeFormat(startDate, "yyyy-MM-DDT00:00:00"),periodTo:changeFormat(endDate, "yyyy-MM-DDT23:59:59"),
             completeStatus:restatus})
             .then(function (response) {
-                console.log(response);          });
-                alert("게시글이 수정되었습니다.")
+                      });
+                      successAlert.successAlert("게시글이 수정되었습니다.")
                 props.addPage("지정헌혈")
 
         }
-        console.log("title", inputs.direct_title)
-        console.log("contents", inputs.direct_context)
-        console.log("name",getIMG)
-        console.log("status",restatus)
-        console.log("start",changedate(startDate))
-        console.log("end",endDate)
+   
     }
 
 

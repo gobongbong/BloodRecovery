@@ -8,7 +8,7 @@ import Directed_main_select from "./Directed_main_select";
 import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
 import axios from "axios";
-
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 //0관리자 1
 const Directed_main = (props) => {
   const [getSi, setGetSi] = useState("전체");
@@ -155,7 +155,7 @@ const Directed_main = (props) => {
             onClick={() =>
               sessionStorage.getItem("userId") !== null
                 ? props.addPage("지정헌혈_글쓰기")
-                : alert("로그인을 해주세요")
+                : successAlert.errorAlert("로그인을 해주세요")
             }
             className="Directed-main-nav-writeicon-class"
           ></img>

@@ -41,7 +41,7 @@ const Mypage_myboard = (props) => {
 
       .then(function (response) {
         setGetdata2(response);
-        console.log("response1", response.data);
+     
       });
   }, []);
 
@@ -63,7 +63,7 @@ const Mypage_myboard = (props) => {
           <div className="Mypage-myboard-board-cardarea">
         {getData.map((menu, index) => (
           <Board_card getData={getData[index]} key={index} what={"board"}>
-            {console.log("index", index)}</Board_card>))}
+          </Board_card>))}
             </div>
         </div>
         <div className="Mypage-myboard-direct-container">
@@ -74,7 +74,7 @@ const Mypage_myboard = (props) => {
         <div className="Mypage-myboard-direct-cardarea">
         {getData2?.data.map((menu, index2) => (
           <Directed_card getData={getData2?.data[index2]} key={index2} what={"direct"}>
-            {console.log("index", index2)}</Directed_card>))}
+           </Directed_card>))}
             </div>
       </div>
       </div>

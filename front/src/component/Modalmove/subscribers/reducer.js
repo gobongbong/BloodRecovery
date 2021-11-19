@@ -12,8 +12,7 @@ function memory(key,data){
     sessionStorage.setItem("last", JSON.stringify(data))
   else
   sessionStorage.setItem("last", data)
-    {console.log("이떄의 last값",sessionStorage.getItem("last"))}
-    {console.log("아오lastbefore",sessionStorage.getItem("lastbefore"))}  {console.log("아오last",sessionStorage.getItem("last"))}
+
 }
 const subcribersReducer =(state=initialState, action)=>{
 

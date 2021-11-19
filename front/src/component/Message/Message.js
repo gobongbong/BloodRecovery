@@ -4,7 +4,7 @@ import Message_card from "./Message_card";
 import "./Message.css";
 import Menu_left_nav from "../Common/Header/Menu_left_nav";
 import MESSAGEIMG from "../../Img/message.png";
-
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 const Message = (props) => {
   const [messages, setMessages] = useState([]);
   const [messageMode, setMessageMode] = useState("");
@@ -28,11 +28,11 @@ const Message = (props) => {
         mode +
         sessionStorage.getItem("userId")
     );
-    console.log(mode, "로 delete 실행");
+ 
     if (mode === "") {
-      alert("메시지 전체가 삭제되었습니다.");
+      successAlert.successAlert("메시지 전체가 삭제되었습니다.");
     } else {
-      alert("읽은 메시지가 삭제되었습니다.");
+      successAlert.successAlert("읽은 메시지가 삭제되었습니다.");
     }
   };
 

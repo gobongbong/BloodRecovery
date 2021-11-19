@@ -117,6 +117,12 @@ input[type= text1] :not(.Directed-main-input){
 input[type= text1]:hover{
     border:solid 2px rgb(236, 138, 138);
 }
+.swal-button--confirm:active {
+    background: #0a0;
+}
+.swal-button--cancel:active {
+    background: #aaa;
+}
 /* 클릭시버튼없애기 */
 input:focus {outline:none;}
 .Textbox{
@@ -202,7 +208,7 @@ input:focus {outline:none;}
 
 .Join-checkbox-input-class{
     width: 50%;
-    background-color: darkred;
+ 
 }
 .Join-checkbox-class{
   
@@ -215,4 +221,11 @@ input:focus {outline:none;}
     margin-left: 65%;
     font-size: 0.5em;
     float: left;
+}
+.swal2-popup{
+width: 100px;
+}
+.swal2-styled {
+background-color: rgb(189, 108, 2);
+
 }

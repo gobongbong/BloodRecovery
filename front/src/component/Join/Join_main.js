@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import Menu_nav_text from "../Common/Header/Menu_nav_text";
 import './Join_main.css';
 import Join_low from "./Join_low";
@@ -6,7 +6,7 @@ import Join_userdata from "./Join_userdata";
 import blood from "../../Img/blood.png";
 
 const Join_main=(props)=>{
-    const [getValue, setValue] = useState("");
+    
 
   
    

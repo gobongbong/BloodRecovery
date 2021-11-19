@@ -225,6 +225,10 @@
   padding: auto;
   float: left;
   width: 100%;
+  white-space: pre;
+}
+pre {
+  white-space: pre-wrap;
 }
 /* pre {
   height: auto;

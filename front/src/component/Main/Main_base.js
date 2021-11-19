@@ -82,15 +82,22 @@ function Main_base(props) {
     setmodal("지정헌혈");
   };
 
+
+
   const logoutsuccess = () => {
     //로그인수정 중복된값을 넣어서 새로 렌더링이안되었던거같음
  
-  
-    if(sessionStorage.getItem("last")=='"마이페이지"')
+    if((sessionStorage.getItem("last")=='"헌혈증_기부"')||(sessionStorage.getItem("last")=='"헌혈증요청조회"')||(sessionStorage.getItem("last")=='"지정헌혈"')||
+    (sessionStorage.getItem("last")=='"지정헌혈조회"')||(sessionStorage.getItem("last")=='"공지사항"')||(sessionStorage.getItem("last")=='"공지사항조회"')||
+    (sessionStorage.getItem("last")=='"공지사항조회"')||(sessionStorage.getItem("last")=='"랭킹"')){
+
+    }
+    else
     {
     movepage("로그인")
       
     }
+
     settestvalue(!testvalue);
     console.log("logout");
   };
@@ -105,6 +112,7 @@ function Main_base(props) {
   }
 
   return (
+    
     <div className="Main-base-class">
       <div className="Main-base-Header-container-class">
         <div className="Main-base-Header-class">

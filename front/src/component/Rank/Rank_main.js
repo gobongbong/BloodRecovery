@@ -31,8 +31,11 @@ function Rank_main() {
           // "http://localhost:8002/rankings/"
           sessionStorage.getItem("userId")
       )
+      .catch(function(error){
+        console.log(error)
+      })
       .then(function (response) {
-        setMyRank(response.data);
+        setMyRank(response?.data);
       });
   }, []);
 
@@ -109,10 +112,10 @@ function Rank_main() {
         <div className="rank-main-myrank-class">
           {sessionStorage.getItem("userId") === null ? (
             <div>"당신도 피로회복에 참여해보세요!"</div>
-          ) : (
+          ) : (my?.nickname===undefined?<div>현재 순위 산정 중 입니다.</div>:
             <div>
-              "{my.nickname}님의 포인트는 {my.point}
-              점입니다. 현재 랭킹은 {my.userRank}위 입니다!"
+              "{my?.nickname}님의 포인트는 {my?.point}
+              점입니다. 현재 랭킹은 {my?.userRank}위 입니다!"
             </div>
           )}
         </div>

@@ -11,7 +11,7 @@ import WRITEWHITEIMG from "../../Img/DirectedIMG/WRITE_WHITE.png";
 import axios from "axios";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
-
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 function Notice_write(props) {
   const [getIMG, setIMG] = useState(null);
   const [inputs, setInputs] = useState({
@@ -29,7 +29,7 @@ function Notice_write(props) {
       )
 
       .then(function (response) {
-        console.log(response);
+
         const firstinputs = {
           notice_context: response.data.contents,
           notice_title: response.data.title,
@@ -49,7 +49,7 @@ function Notice_write(props) {
     };
     //만든 변수를 seInput으로 변경해준다.
     setInputs(nextInputs);
-    // console.log(inputs);
+
   };
 
   function changeFormat(date, format) {
@@ -61,9 +61,9 @@ function Notice_write(props) {
   }
   const senddata = () => {
     if (inputs.request_title === "") {
-      alert("제목을 넣어주세요");
+      successAlert.errorAlert("제목을 넣어주세요");
     } else if (inputs.request_context === "") {
-      alert("내용을 넣어주세요");
+      successAlert.errorAlert("내용을 넣어주세요");
     } else {
       axios
         .put(
@@ -79,9 +79,9 @@ function Notice_write(props) {
           }
         )
         .then(function (response) {
-          console.log("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ" + response);
+         
         });
-      alert("게시글이 수정되었습니다.");
+        successAlert.successAlert("게시글이 수정되었습니다.");
     }
   };
 

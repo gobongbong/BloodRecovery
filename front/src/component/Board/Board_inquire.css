@@ -120,9 +120,19 @@
   margin: auto;
   height: auto;
   width: 100%;
-  /* background-color: rgb(0, 255, 13); */
   font-size: 16px;
   float: left;
+  word-wrap:break-word; word-break:break-all;
+ 
+
+
+}
+.Board-inquire-card-context-classpre{
+ 
+  white-space:pre-line;
+  
+
+
 }
 .Board-inquire-card-writer-container {
   float: right;

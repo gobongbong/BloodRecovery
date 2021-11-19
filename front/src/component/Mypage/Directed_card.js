@@ -6,10 +6,9 @@ import GOLD from "../../Img/Grade/2_gold.png";
 import VIP from "../../Img/Grade/1_vip.png";
 import BLOODDROP from "../../Img/DirectedIMG/blood-drop.png";
 import LOCATION from "../../Img/DirectedIMG/location.png";
-import Directed_inquire from '../Directed/Directed_inquire';
-import Directed_main from "../Directed/Directed_main";
 import {connect} from 'react-redux'
 import {addPage} from '../../component/Modalmove/subscribers/action'
+
 const gradefunction=(Grade)=>{
 
     if(Grade===1) //BRONZE 예정

@@ -7,9 +7,9 @@ import blood from "../../Img/blood.png";
 import axios from "axios";
 import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 const Login_main = (props) => {
-  const [loginId, setLoginid] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+
 
   const [inputs, setInputs] = useState({
     loin_id: "",
@@ -40,12 +40,12 @@ const Login_main = (props) => {
         console.log(res.data.result);
 
         if (res.data.result === true) {
-          alert("로그인성공");
+          successAlert.successAlert("로그인성공");
           sessionStorage.setItem("userId", inputs.loin_id);
           console.log(sessionStorage.getItem("userId"));
           sendValue("성공");
         } else if (res.data.result === false) {
-          alert("로그인 실패");
+          successAlert.errorAlert("로그인 실패");
         }
       });
   };
@@ -60,7 +60,7 @@ const Login_main = (props) => {
     //만든 변수를 seInput으로 변경해준다.
     setInputs(nextInputs);
 
-    console.log(inputs);
+  
   };
 
   return (

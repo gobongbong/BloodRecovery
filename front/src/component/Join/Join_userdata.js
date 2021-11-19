@@ -4,6 +4,9 @@ import Common_Button from "../Common/Button/Common_Button";
 import axios from "axios";
 import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
+
+
 const Join_userdata = (props) => {
   const [btnnickname, setBtnNickname] = useState(false);
   const [btnid, setBtnid] = useState(false);
@@ -87,7 +90,7 @@ const Join_userdata = (props) => {
   };
   const idoverlap = () => {
     if (idEXP.test(join_id) === false) {
-      alert("아이디 양식에 맞춰 입력해주세요.");
+      successAlert.errorAlert("아이디 양식에 맞춰 입력해주세요.")
     } else if (idEXP.test(join_id) === true) {
       axios
         .get(
@@ -98,11 +101,13 @@ const Join_userdata = (props) => {
           //false면 가입불가능 true면 가입가능
           console.log(res.data.result);
           if (res.data.result === true) {
-            alert("사용가능한 아이디입니다.");
+            successAlert.successAlert("사용가능한 아이디입니다.")
+            
             setBtnid(idEXP.test(join_id));
           }
           else{
-            alert("중복된 아이디입니다.")
+            successAlert.errorAlert("중복된 아이디입니다.")
+           
           }
         });
     }
@@ -111,7 +116,7 @@ const Join_userdata = (props) => {
 
   const nicknameoverlap = () => {
     if (nicknameEXP.test(join_nickname) === false) {
-      alert("닉네임 양식에 맞춰 입력해주세요.");
+      successAlert.errorAlert("닉네임 양식에 맞춰 입력해주세요.");
     } else if (nicknameEXP.test(join_nickname) === true) {
       axios
         .get(
@@ -122,11 +127,11 @@ const Join_userdata = (props) => {
           //false면 가입불가능 true면 가입가능
           console.log(res.data.result);
           if (res.data.result === true) {
-            alert("사용가능한 닉네임입니다.");
+            successAlert.successAlert("사용가능한 아이디입니다.")
             setBtnNickname(nicknameEXP.test(join_nickname));
           }
           else{
-            alert("중복된 닉네임입니다.")
+            successAlert.errorAlert("중복된 닉네임입니다.")
           }
         });
     }
@@ -136,7 +141,7 @@ const Join_userdata = (props) => {
 
   const registeroverlap = () => {
     if(resister1Check === false || resister2Check === false){
-        alert("주민등록번호를 입력해주세요.")
+      successAlert.errorAlert("주민등록번호를 입력해주세요.")
     } 
     else if (resister1Check === true && resister2Check === true) {
       axios
@@ -149,7 +154,7 @@ const Join_userdata = (props) => {
         )
         .then(function (res) {
           if (res.data.result === true) {
-            alert("실명인증이 완료되었습니다.");
+            successAlert.successAlert("실명인증이 완료되었습니다.");
             setbtnregister(true);
           }
         });
@@ -174,25 +179,25 @@ const Join_userdata = (props) => {
     // 6은 성명과 주민등록번호 인증 체크
     if (agreement !== true) {
       //동의
-      alert("회원가입을 위한 개인정보 수집 및 이용안내사항을 동의해주세요.");
+      successAlert.errorAlert("회원가입을 위한 개인정보 수집 및 이용안내사항을 동의해주세요.");
     } else if (nicknameCheck !== true) {
-      alert("닉네임을 확인해주세요.");
+      successAlert.errorAlert("닉네임을 확인해주세요.");
     } else if (idCheck !== true) {
-      alert("아이디를 확인해주세요.");
+      successAlert.errorAlert("아이디를 확인해주세요.");
     } else if (passwordCheck !== true) {
-      alert("비밀번호를 확인해주세요.");
+      successAlert.errorAlert("비밀번호를 확인해주세요.");
     } else if (passwordconfirmCheck !== true) {
-      alert("비밀번호 확인을 확인해주세요.");
+      successAlert.errorAlert("비밀번호 확인을 확인해주세요.");
     } else if (nameCheck !== true) {
-      alert("성명을 확인해주세요");
+      successAlert.errorAlert("성명을 확인해주세요");
     } else if (resister1Check !== true || resister2Check !== true) {
-      alert("주민등록번호를 확인해주세요.");
+      successAlert.errorAlert("주민등록번호를 확인해주세요.");
     } else if (btnnickname !== true) {
-      alert("닉네임을 중복확인해주세요.");
+      successAlert.errorAlert("닉네임을 중복확인해주세요.");
     } else if (btnid !== true) {
-      alert("아이디를 중복확인해주세요.");
+      successAlert.errorAlert("아이디를 중복확인해주세요.");
     } else if (btnregister !== true) {
-      alert("실명 인증을 해주세요.");
+      successAlert.errorAlert("실명 인증을 해주세요.");
     } else {
       //alert_blank=7;
       encryption();
@@ -211,7 +216,7 @@ const Join_userdata = (props) => {
           console.log(response);
         });
 
-      alert("회원가입이 완료되었습니다.");
+        successAlert.successAlert("회원가입이 완료되었습니다.");
       props.addPage("로그인");
     }
 

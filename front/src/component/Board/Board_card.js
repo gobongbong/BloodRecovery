@@ -5,7 +5,6 @@ import SIVER from "../../Img/Grade/3_silver.png";
 import GOLD from "../../Img/Grade/2_gold.png";
 import VIP from "../../Img/Grade/1_vip.png";
 import BLOODDROP from "../../Img/DirectedIMG/blood-drop.png";
-import Board_main from "./Board_main";
 import { connect } from "react-redux";
 import { addPage } from "../../component/Modalmove/subscribers/action";
 
@@ -60,8 +59,7 @@ const Board_card = (getData) => {
             ) : (
               <p className="Board-card-nav-userstatus-p-class2">완료</p>
             )}
-            {/* {console.log(getData)} */}
-            {/* {getData.getData?.donationCount}/{getData.getData?.requestCount} */}
+
           </div>
         </div>
       </div>
@@ -76,8 +74,6 @@ const Board_card = (getData) => {
             </p>
           </div>
         </div>
-
-        {/* {console.log(getData.getData?.id)} */}
       </div>
     </div>
   );

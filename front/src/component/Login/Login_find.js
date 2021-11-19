@@ -4,6 +4,7 @@ import Menu_left_nav from "../Common/Header/Menu_left_nav";
 import blood from '../../Img/blood.png';
 import Common_Button from "../Common/Button/Common_Button";
 import axios from "axios";
+import * as successAlert from "../Common/MakeAlert/successAlert.js"
 function Login_find() {
     const [passwordCheck,setPasswordCheck]=useState(false)
     const [check,setcheck]=useState(false)
@@ -58,18 +59,18 @@ function Login_find() {
     const senddata=()=>{
 
 
-        if(inputs.find_name===""){alert("성명을 입력해주세요")}
-        else if(inputs.find_personal===""){alert("주민등록번호를 입력해주세요")}
-        else if(check===false){alert("실명인증을 해주세요")}
+        if(inputs.find_name===""){successAlert.errorAlert("성명을 입력해주세요")}
+        else if(inputs.find_personal===""){successAlert.errorAlert("주민등록번호를 입력해주세요")}
+        else if(check===false){successAlert.errorAlert("실명인증을 해주세요")}
         else{
 
             axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/idFind",{name:inputs.find_name,personalNumber:inputs.find_personal})
             .then(function(res){
-                console.log("비밀번호",res)
+              
                 if(res.data!=="")
-                alert("찾으신 아이디는 "+res.data+" 입니다.")
+                successAlert.successAlert("찾으신 아이디는 "+res.data+" 입니다.")
                 else{
-                    alert("해당 정보가 없습니다.")
+                    successAlert.errorAlert("해당 정보가 없습니다.")
                 }
             })
         }
@@ -77,11 +78,11 @@ function Login_find() {
     const senddata1=()=>{
     
 
-        if(inputsPassword.findps_name===""){alert("성명을 입력해주세요")}
-        else if(inputsPassword.findps_personal===""){alert("주민등록번호를 입력해주세요")}
-        else if(inputsPassword.findps_id===""){alert("아이디를 입력해주세요")}
-        else if(checkps===false){alert("실명인증을 해주세요")}
-        else if(passwordCheck===false){alert("비밀번호 양식을 지켜주세요")}
+        if(inputsPassword.findps_name===""){successAlert.errorAlert("성명을 입력해주세요")}
+        else if(inputsPassword.findps_personal===""){successAlert.errorAlert("주민등록번호를 입력해주세요")}
+        else if(inputsPassword.findps_id===""){successAlert.errorAlert("아이디를 입력해주세요")}
+        else if(checkps===false){successAlert.errorAlert("실명인증을 해주세요")}
+        else if(passwordCheck===false){successAlert.errorAlert("비밀번호 양식을 지켜주세요")}
         //else if(인증안했을떄)
         else{
 
@@ -91,51 +92,42 @@ function Login_find() {
                 if(res.data===inputsPassword.findps_id){
                     axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/pwReset",{userId:inputsPassword.findps_id,password:inputsPassword.findps_password})
                     .then(function(res){
-                        alert("비밀번호가 변경되었습니다.")
+                        successAlert.successAlert("비밀번호가 변경되었습니다.")
                         
                     })
 
                 }
-                else {alert("정보를 다시 입력해주세요")}
+                else {successAlert.errorAlert("정보를 다시 입력해주세요")}
                 
             })
             console.log(inputsPassword)
             
         }
 
-        // if(check===true){
-        //     console.log(i)
-        //     axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/pwReset",{userId:inputsPassword.findps_id,password:inputs.findps_password})
-        //     .then(function(res){
-        //         console.log("ㅎㅎ",res)
-        //         alert("비밀번호가 변경되었습니다.")
-                
-        //     })
-        // }
-        // else{alert("오류")}
+    
     }
     const personalcheck=(text)=>{
         
 
         if(text==="id")
         {
-            if(inputs.find_name===""){alert("성명을 입력해주세요")}
-        else if(inputs.find_personal===""){alert("주민등록번호를 입력해주세요")}
+            if(inputs.find_name===""){successAlert.errorAlert("성명을 입력해주세요")}
+        else if(inputs.find_personal===""){successAlert.errorAlert("주민등록번호를 입력해주세요")}
         else
             {axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",{name:inputs.find_name,personalNumber:inputs.find_personal})
         .then(function(res){
-           if(res.data.result===true){alert("실명인증이 완료되었습니다.")}
+           if(res.data.result===true){successAlert.successAlert("실명인증이 완료되었습니다.")}
             {setcheck(true)}
         })}
          }
          else if(text==="password")
          {
-            if(inputsPassword.findps_name===""){alert("성명을 입력해주세요")}
-        else if(inputsPassword.findps_personal===""){alert("주민등록번호를 입력해주세요")}
+            if(inputsPassword.findps_name===""){successAlert.errorAlert("성명을 입력해주세요")}
+        else if(inputsPassword.findps_personal===""){successAlert.errorAlert("주민등록번호를 입력해주세요")}
         else{ 
             axios.post("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",{name:inputsPassword.findps_name,personalNumber:inputsPassword.findps_personal})
          .then(function(res){
-            if(res.data.result===true){alert("실명인증이 완료되었습니다.")}
+            if(res.data.result===true){successAlert.successAlert("실명인증이 완료되었습니다.")}
              {setcheckps(true)}
          })}
 
