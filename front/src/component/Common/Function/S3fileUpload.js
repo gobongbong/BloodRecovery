@@ -105,7 +105,7 @@ function S3Upload(props) {
             ) : end === false ? (
               <Alert color="primary">파일을 선택해 주세요.</Alert>
             ) : (
-              <Alert color="primary">파일업로드가 완료되었습니다.</Alert>
+              <Alert color="primary">업로드 완료창을 확인해주세요.</Alert>
             )}
           </Col>
         </Row>
