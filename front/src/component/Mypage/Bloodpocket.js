@@ -46,7 +46,7 @@ function Bloodpocket_main(on) {
   });
 
   const [end, setend] = useState(false);
-  const [tofile,setfile]=useState();
+  const [tofile, setfile] = useState();
   const [filename, getfilename] = useState("");
 
   const [carddata, setCarddata] = useState();
@@ -148,121 +148,119 @@ function Bloodpocket_main(on) {
     // }
   };
   const dataURLtoFile = (dataurl, fileName) => {
- 
-    var arr = dataurl.split(','),
-        mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]), 
-        n = bstr.length, 
-        u8arr = new Uint8Array(n);
-        
-    while(n--){
-        u8arr[n] = bstr.charCodeAt(n);
+    console.log("dataURLtoFile start");
+    var arr = dataurl.split(","),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
     }
-    
-    return new File([u8arr], fileName, {type:mime});
-}
-  function filetoimg()
-  { var dataURI
-    var file = document.querySelector('#fileuploading');
-    
-      var fileList = file.files ;
-      const fileExt = "png";
-      // 읽기
-      var reader = new FileReader();
-      reader.readAsDataURL(fileList [0]);
-  
-      //로드 한 후
-      reader.onload = function  () {
-          //로컬 이미지를 보여주기
-     
-          
-          //썸네일 이미지 생성
-          var tempImage = new Image(); //drawImage 메서드에 넣기 위해 이미지 객체화
-          tempImage.src = reader.result; //data-uri를 이미지 객체에 주입
-          tempImage.onload = function() {
-              //리사이즈를 위해 캔버스 객체 생성
-              var canvas = document.createElement('canvas');
-              var canvasContext = canvas.getContext("2d");
-              
-              //캔버스 크기 설정
-              canvas.width = 600; //가로 100px
-              canvas.height = 600; //세로 100px
-              
-              //이미지를 캔버스에 그리기
-              canvasContext.drawImage(this, 0, 0, 600, 600);
-              //캔버스에 그린 이미지를 다시 data-uri 형태로 변환
-              dataURI = canvas.toDataURL("image/jpeg");
-              
-              //썸네일 이미지 보여주기
-              document.querySelector('#thumbnail').src = dataURI;
-              var file2 = dataURLtoFile(dataURI,'file');
-              const formData = new FormData();
-    formData.append("file", file2);
-    //console.log("img", img)
-    
-    //console.log("img==", img)
-    //setFilebuffer(fileExt);
-    //
-    // if(img.type !== 'image/png' || fileExt !=='png'){
-    //   alert('jpg 파일만 Upload 가능합니다.');
-    //   return;
-    // }
 
-    axios({
-      method: "post",
-      url: "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/ocr",
-      data: formData,
+    return new File([u8arr], fileName, { type: mime });
+  };
+  function filetoimg() {
+    console.log("filetoimg");
+    var dataURI;
+    var file = document.querySelector("#fileuploading");
 
-      transformResponse: function (data) {
-        console.log("log", JSON.parse(data).date);
-        setCarddata(JSON.parse(data));
+    var fileList = file.files;
+    // 읽기
+    var reader = new FileReader();
+    reader.readAsDataURL(fileList[0]);
 
-        // axios.post("http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/아이디1", {code:"18",image:null})
-        // .then(function(res){
-        //   console.log("업로드까지 끝")
-        // })
-        if (JSON.parse(data).code === null) {
-          alert("code가 읽히지않았습니다. 다시 사진을 찍어주세요");
-        } else {
-          console.log("날짜가있었나요?", JSON.parse(data));
-          axios
-            .post(
-              "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/apply",
-              { code: JSON.parse(data).code }
-            )
-            .then(function (res) {
-              console.log("trs", res); //bims 확인, s3이미지 업로드와 카드 등록하기
-              if (res.data === true) {
-                //s3이미지 업로드
-                var im = uploadFile(file2, fileExt);
-                axios
-                  .post(
-                    "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/" +
-                      sessionStorage.getItem("userId"),
-                    { code: JSON.parse(data).code, image: im }
-                  )
-                  .then(function (res) {
-                    console.log("업로드까지 끝");
-                  });
-              } else {
-                alert("잘못된 헌혈증입니다.");
-              }
-            });
-        }
-      },
-    });
-              console.log("gb",file2)
-          };
-       
-          // 
-  }; 
+    //로드 한 후
+    reader.onload = function () {
+      console.log("reader.onload");
+      //로컬 이미지를 보여주기
 
+      //썸네일 이미지 생성
+      var tempImage = new Image(); //drawImage 메서드에 넣기 위해 이미지 객체화
+      tempImage.src = reader.result; //data-uri를 이미지 객체에 주입
+      tempImage.onload = function () {
+        console.log("tempImage.onload");
+        //리사이즈를 위해 캔버스 객체 생성
+        var canvas = document.createElement("canvas");
+        var canvasContext = canvas.getContext("2d");
 
+        //캔버스 크기 설정
+        canvas.width = 600; //가로 100px
+        canvas.height = 600; //세로 100px
+
+        //이미지를 캔버스에 그리기
+        canvasContext.drawImage(this, 0, 0, 600, 600);
+        //캔버스에 그린 이미지를 다시 data-uri 형태로 변환
+        dataURI = canvas.toDataURL("image/jpeg");
+
+        var file2 = dataURLtoFile(dataURI, "file");
+        const formData = new FormData();
+        formData.append("file", file2);
+        const fileExt = "jpg";
+        //console.log("img", img)
+
+        //console.log("img==", img)
+        //setFilebuffer(fileExt);
+        //
+        // if(img.type !== 'image/png' || fileExt !=='png'){
+        //   alert('jpg 파일만 Upload 가능합니다.');
+        //   return;
+        // }
+
+        axios({
+          method: "post",
+          url: "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/ocr",
+          data: formData,
+
+          transformResponse: function (data) {
+            console.log("log", JSON.parse(data).date);
+            setCarddata(JSON.parse(data));
+
+            // axios.post("http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/아이디1", {code:"18",image:null})
+            // .then(function(res){
+            //   console.log("업로드까지 끝")
+            // })
+            if (JSON.parse(data).code === null) {
+              alert("code가 읽히지않았습니다. 다시 사진을 찍어주세요");
+            } else {
+              console.log("날짜가있었나요?", JSON.parse(data));
+              axios
+                .post(
+                  "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/apply",
+                  { code: JSON.parse(data).code }
+                )
+                .then(function (res) {
+                  console.log("trs", res); //bims 확인, s3이미지 업로드와 카드 등록하기
+                  if (res.data === true) {
+                    //s3이미지 업로드
+                    var im = uploadFile(file2, fileExt);
+                    axios
+                      .post(
+                        "http://BloodRecovery-LB-1423483073.us-east-2.elb.amazonaws.com:8000/mypage/card/" +
+                          sessionStorage.getItem("userId"),
+                        { code: JSON.parse(data).code, image: im }
+                      )
+                      .then(function (res) {
+                        console.log("업로드까지 끝");
+                      });
+                  } else {
+                    alert("잘못된 헌혈증입니다.");
+                  }
+                });
+            }
+          },
+        });
+        console.log("gb", file2);
+      };
+
+      //
+    };
   }
-  
-  const onChange = (e) => {
 
-    filetoimg()
+  const onChange = (e) => {
+    console.log("onChange start");
+    filetoimg();
     // const formData = new FormData();
     // formData.append("file", img);
     // //console.log("img", img)
