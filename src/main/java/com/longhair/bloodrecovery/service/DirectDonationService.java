@@ -79,7 +79,7 @@ public class DirectDonationService {
                         checkDirect(item);
                         e.setApplyStatus(true);
                         e.setApplyDate(LocalDateTime.now());
-                        changePoint(e.getApplicantIdentify(), 1, 0, "지정헌혈 인증 완료");
+                        changePoint(e.getApplicantIdentify(), 1, 0, "지정 헌혈 인증");
                         applicantRepository.save(e);
                         directDonationRepository.save(item);
                         sendMessage(item, e);
@@ -194,7 +194,7 @@ public class DirectDonationService {
 
     @Transactional
     public DirectDonation saveDirectDonation(DirectDonation directDonation){
-        if(!changePoint(directDonation.getRequesterUserId(), 0, directDonation.getBloodMaxCount(), "지정헌혈 요청으로 인한 포인트")){
+        if(!changePoint(directDonation.getRequesterUserId(), 0, directDonation.getBloodMaxCount(), "지정 헌혈 요청")){
             return new DirectDonation();
         }
 
@@ -247,7 +247,7 @@ public class DirectDonationService {
     @Transactional
     public void changeComplete(DirectDonation directDonation){
         int num = directDonation.getBloodMaxCount() - directDonation.getBloodCurrentCount();
-        changePoint(directDonation.getRequesterUserId(), num, 0, "완료 상태 변경으로 인한 캐쉬백");
+        changePoint(directDonation.getRequesterUserId(), num, 0, "요청 중단 및 삭제로 인한 포인트 캐시백");
     }
 
     @Transactional(readOnly = true)
