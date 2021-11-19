@@ -82,7 +82,7 @@ public class CardService {
                     type = e.split(compareType)[1];
                 }
                 if(e.contains(compareDate)){
-                    date = e.split(compareDate)[1];
+                    date = e.split(compareDate)[1].replaceAll(" ", "");
                 }
             }
             log.info("result[ code:" + code + ", name:" + name + ", type:" + type + ", date:" + date + " ]");
