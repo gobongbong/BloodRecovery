@@ -32,13 +32,18 @@ const [inputs, setInputs] = useState({
   }
   const senddata=()=>{
 
-
+    if(sessionStorage.getItem("userId")===null)
+    {
+      successAlert.errorAlert("로그인을 해주세요.")
+    }
+    else{
     if(inputs.bloodhousename==="")
     {
       successAlert.errorAlert("헌혈의 집 이름을 입력해주세요")
     }
     else successAlert.successAlert("예약이 완료되었습니다.")
   }
+}
   const [date, setDate] = useState(new Date());
 
   return (
