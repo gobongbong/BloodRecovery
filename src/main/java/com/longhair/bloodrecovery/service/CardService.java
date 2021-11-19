@@ -84,7 +84,7 @@ public class CardService {
                 if(e.contains(compareDate)){
                     date = e.split(compareDate)[1].replaceAll(" ", "");
                     if (date.endsWith(".")) {
-                        return date.substring(0, date.length() - 1);
+                        date = date.substring(0, date.length() - 1);
                     }
                 }
             }
