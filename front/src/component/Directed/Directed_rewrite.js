@@ -33,7 +33,7 @@ function Directed_write(props) {
 
     })
 
-
+   
     useEffect(() => {
         axios
             .get("http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/direct/directedItem/" + sessionStorage.getItem("directId"))
@@ -46,7 +46,8 @@ function Directed_write(props) {
                 }
                 setInputs(firstinputs)
                 setIMG(response.data.img)
-                setStartDate(response.data.periodFrom)
+                setStartDate(changedate(response.data.periodFrom))
+                setGetData(changedate(response.data.periodFrom))
                 setendDate(changedate(response.data.periodTo))
             });
 
@@ -118,7 +119,12 @@ function Directed_write(props) {
         }
    
     }
-
+    const datewow=(date)=>{
+        setStartDate(date)
+        if(date>endDate)
+        {
+            setendDate(date)}
+      }
 
     const getfilename = (value) => {
         // console.log("wow",value)
@@ -145,7 +151,7 @@ function Directed_write(props) {
                                 </input>
                                 <div className="Directed-rewrite-card-data-class">
                                     <div className="Directed-rewrite-calender1">
-                                    <DataPicker locale={ko} value={changedate2(startDate)}  dateFormat="yyyy/MM/dd" minDate={changedate(startDate)} ></DataPicker> </div><div className="Directed-write-card-wow">~</div>
+                                    <DataPicker locale={ko} value={startDate} selected={startDate} dateFormat="yyyy/MM/dd" minDate={getData} onChange={(date) => datewow(date)}></DataPicker> </div><div className="Directed-write-card-wow">~</div>
                                     <div className="Directed-rewrite-calender2"><DataPicker locale={ko} selected={endDate} dateFormat="yyyy/MM/dd" minDate={changedate(startDate)} onChange={date => setendDate(date)}></DataPicker></div>
                                 </div>
                             </div>

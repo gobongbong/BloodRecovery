@@ -60,6 +60,12 @@ function Directed_write(props) {
       return null;
     }
   }
+  const datewow=(date)=>{
+    setStartDate(date)
+    if(date>endDate)
+    {
+    setendDate(date)}
+  }
   const senddata = () => {
     //console.log(getIMG)
     //console.log("requesterUserId:",sessionStorage.getItem("userId"),"title:",inputs.direct_title,"contents:",inputs.direct_context,"image:",getIMG,"locationSido:",getSido,"locationSigungu:",getSigungu,"periodFrom:",changeFormat(startDate, "yyyy-MM-DDT00:00:00"),"periodTo:",changeFormat(endDate, "yyyy-MM-DDT23:59:59"),"bloodType:",inputs.direct_bloodtype,"bloodMaxCount:",directCount,"patientName:",inputs.direct_patient,"hospitalName:",inputs.direct_hospital,"roomNumber:",inputs.direct_room,"phoneNumber:",inputs.direct_phonenumber)
@@ -163,8 +169,8 @@ function Directed_write(props) {
                       selected={startDate}
                       dateFormat="yyyy/MM/dd"
                       minDate={new Date()}
-                      onChange={(date) => setStartDate(date)}
-                    ></DataPicker>{" "}
+                      onChange={(date) => datewow(date)}
+                    ></DataPicker>
                   </div>
                   <div className="Directed-write-card-wow">~</div>
                   <div className="Directed-write-calender2">

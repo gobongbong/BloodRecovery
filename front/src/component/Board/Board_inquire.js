@@ -56,7 +56,7 @@ const Board_inquire = (id) => {
         setGetData(response);
         
       });
-  }, []);
+  }, [getData]);
 
   const deleteData = () => {
     axios
