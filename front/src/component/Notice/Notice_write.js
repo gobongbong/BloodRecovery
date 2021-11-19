@@ -109,6 +109,7 @@ function Notice_write(props) {
             </div>
 
             <div className="Notice-write-footer-imageurl-container">
+              Image url:
               <input
                 name="notice_imageurl"
                 className="Notice-write-footer-imageurl"

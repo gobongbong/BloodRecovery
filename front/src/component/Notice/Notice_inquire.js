@@ -180,11 +180,11 @@ const Notice_inquire = (id) => {
               </div>
             ) : null}
 
-            <div className="Notice-inquire-default-footer-container">
+            {/* <div className="Notice-inquire-default-footer-container">
               <div className="Notice-inquire-default-footer-info1-class">
                 피로회복 짱
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

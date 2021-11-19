@@ -14,7 +14,7 @@
     /*스크롤은 픽셀로 정해줘야 스크롤이생김 %는 안되는거 확실함*/
     height: 20vh;
     margin: 3%;
-    font-size: 0.5em;
+    font-size: 0.7em;
     /* background-color: burlywood; */
 }
 .Join-low-container-class{

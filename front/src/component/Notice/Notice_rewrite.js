@@ -139,6 +139,7 @@ function Notice_write(props) {
             </div>
 
             <div className="Notice-rewrite-footer-imageurl-container">
+              Img url:
               <input
                 name="notice_imageurl"
                 className="Notice-rewrite-footer-imageurl"
@@ -146,7 +147,6 @@ function Notice_write(props) {
                 onChange={onChange}
               ></input>
             </div>
-
             <div className="Notice-rewrite-btn-container">
               <div className="Notice-rewrite-btn-class" onClick={senddata}>
                 <Common_Button_IMG

@@ -135,7 +135,10 @@ const Join_userdata = (props) => {
   };
 
   const registeroverlap = () => {
-    if (resister1Check === true && resister2Check === true) {
+    if(resister1Check === false || resister2Check === false){
+        alert("주민등록번호를 입력해주세요.")
+    } 
+    else if (resister1Check === true && resister2Check === true) {
       axios
         .post(
           "http://bloodrecovery-lb-1423483073.us-east-2.elb.amazonaws.com:8000/user/verify",

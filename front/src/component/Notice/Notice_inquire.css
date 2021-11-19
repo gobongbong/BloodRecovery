@@ -4,7 +4,7 @@
   height: 734px;
   margin: auto;
 
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 .Notice-inquire-nav-container {
   float: left;
@@ -12,14 +12,14 @@
   width: 100%;
   /* background-color: aqua; */
   border-bottom: solid 4px #fb4d4e;
-  background-color: rgb(12, 74, 128);
+  /* background-color: rgb(12, 74, 128); */
 }
 .Notice-inquire-nav-class {
   margin-left: 3%;
   margin-top: 1%;
   width: 89%;
   float: left;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 .Notice-inquire-content-container {
   width: 100%;
@@ -29,7 +29,7 @@
 }
 .Notice-inquire-content-class {
   margin: auto;
-  background-color: rgb(155, 155, 155);
+  /* background-color: rgb(155, 155, 155); */
   width: 80%;
   height: 90%;
   /* height: 70%; */
@@ -42,19 +42,19 @@
   width: 40px;
   height: 40px;
   float: left;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 .Notice-inquire-nav-goback {
   width: 8%;
   height: 100%;
-  background-color: coral;
+  /* background-color: coral; */
   float: left;
 }
 .Notice-inquire-card-class {
   width: 100%;
   float: left;
   height: auto;
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
   border: 2px solid #fb4d4e;
   border-radius: 50px 50px 50px 50px;
 }
@@ -66,20 +66,21 @@
   width: 100%;
   height: 50px;
   border-bottom: solid 4px #fb4d4e;
-  background-color: rgba(0, 0, 255, 0.075);
+  /* background-color: rgba(0, 0, 255, 0.075); */
 }
 .Notice-inquire-card-title-class {
   float: left;
   margin-top: 3%;
   width: 75%;
-  background-color: aqua;
+  /* background-color: aqua; */
   font-size: 16px;
 }
 .Notice-inquire-card-data-class {
   float: left;
   margin-top: 3%;
-  width: 25%;
-  background-color: aquamarine;
+  width: 13%;
+  margin-left: 12%;
+  /* background-color: aquamarine; */
   font-size: 16px;
 }
 
@@ -89,7 +90,7 @@
   height: 5%;
   margin-top: 1%;
   margin-bottom: 1%;
-  background-color: rgb(168, 85, 60);
+  /* background-color: rgb(168, 85, 60); */
 }
 .Notice-inquire-card-info-location {
   width: 10%;
@@ -99,7 +100,7 @@
   margin-left: 2%;
   border-radius: 5px 5px 5px 5px;
   font-size: 14px;
-  background-color: #fed4d4;
+  /* background-color: #fed4d4; */
 }
 .Notice-inquire-card-info-bloodtype {
   width: 10%;
@@ -109,7 +110,7 @@
   margin-left: 2%;
   border-radius: 5px 5px 5px 5px;
   font-size: 17px;
-  background-color: #fed4d4;
+  /* background-color: #fed4d4; */
   color: #fb4d4e;
   text-align: center;
 }
@@ -119,47 +120,47 @@
   margin: auto;
   height: auto;
   width: 100%;
-  background-color: rgb(0, 255, 13);
+  /* background-color: rgb(0, 255, 13); */
   font-size: 16px;
   float: left;
 }
 .Notice-inquire-card-writer-container {
   float: right;
   margin-top: 0%;
-  width: 17%;
+  width: 12%;
   height: 80%;
-  background-color: #fb4d4e;
+  /* background-color: #fb4d4e; */
 }
 .Notice-inquire-card-writer-icon {
   float: left;
   margin-top: 0%;
   height: 80%;
   width: 30%;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 .Notice-inquire-card-writername-class {
   margin-top: 5%;
   float: left;
-  background-color: blue;
+  /* background-color: blue; */
   width: 70%;
 }
 .Notice-inquire-card-footer-class {
   height: 50px;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 .Notice-inquire-card-footer-status {
   margin: auto;
   height: 70%;
   width: 10%;
   border-radius: 8px 8px 8px 8px;
-  background-color: #fed4d4;
+  /* background-color: #fed4d4; */
 }
 .Notice-inquire-footer-container {
   width: 100%;
   float: left;
   height: 40%;
   margin-top: 3%;
-  background-color: rgb(55, 0, 255);
+  /* background-color: rgb(55, 0, 255); */
 }
 
 .Notice-inquire-card-footer-statueIMG {
@@ -176,7 +177,7 @@
   float: left;
   width: 100%;
   height: auto;
-  background-color: bisque;
+  /* background-color: bisque; */
   text-align: center;
   border-top: 1px solid rgb(91, 92, 91);
   color: #fb4d4e;
@@ -184,19 +185,19 @@
 .Notice-inquire-footer-mypost {
   width: 100%;
   height: 15%;
-  background-color: #941515;
+  /* background-color: #941515; */
   font-size: 17px;
 }
 .Notice-inquire-footer-repost {
   width: 8%;
-  background-color: rgb(158, 93, 8);
+  /* background-color: rgb(158, 93, 8); */
   float: right;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
 .Notice-inquire-footer-delete {
   width: 8%;
-  background-color: rgb(190, 182, 170);
+  /* background-color: rgb(190, 182, 170); */
   float: right;
   color: rgb(0, 0, 0);
   cursor: pointer;
@@ -206,7 +207,7 @@
   margin-top: 2%;
   float: left;
   width: 100%;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   text-align: center;
   font-size: 11px;
   color: rgb(0, 0, 0);
@@ -215,12 +216,12 @@
   height: 12%;
   float: left;
   width: 100%;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   text-align: center;
   color: #fb4d4e;
 }
 .Notice-inquire-contents {
-  background-color: #941515;
+  /* background-color: #941515; */
   padding: auto;
   float: left;
   width: 100%;
