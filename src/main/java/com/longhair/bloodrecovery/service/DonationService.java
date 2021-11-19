@@ -73,7 +73,7 @@ public class DonationService {
         }//요청개수를 다 채우면 완료상태를 true로 변경
 
         //메시지 보내기
-        sendMessage(cardRequest, donation);
+        sendMessage(cardRequest, savedonation);
 
         //기부 정보 저장
         Donation saveDonation = donationRepository.save(savedonation);
